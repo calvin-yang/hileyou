@@ -1,0 +1,87 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>美景贴图</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('Home/inforadd',array('type' => 1))}">新 增</a>
+            <button class="btn ajax-post confirm" url="{:U('Home/infor_changeStatus',array('method'=>'resumeuser'))}" target-form="ids">发 布</button>
+            <button class="btn ajax-post confirm" url="{:U('Home/infor_changeStatus',array('method'=>'forbidUser'))}" target-form="ids">禁 用</button>
+            <button class="btn ajax-post confirm" url="{:U('Home/infor_changeStatus',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class=""></th>
+		<th class="">标题</th>
+		<!-- <th class="">类型</th> -->
+		<th class="">发布人</th>
+		<th class="">添加时间</th>
+		<!-- <th class="">置顶</th> -->
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+			<td>{$vo.title} </td>
+			<td>{$vo.publisher}</td>
+			<td>{$vo.insert_time|date='Y-m-d',###}</td>
+			<td>{$vo.status_text}</td>
+			<td>
+				<a href="{:U('Home/inforedit?type=1&id='.$vo['id'])}" target="_blank">编辑</a>
+				<eq name="vo['status']" value="0">
+					<a href="{:U('Home/infor_changeStatus?method=resumeuser&id='.$vo['id'])}" class="confirm ajax-get">发布</a>
+				<else />
+					<a href="{:U('Home/infor_changeStatus?method=forbidUser&id='.$vo['id'])}" class="confirm ajax-get">禁用</a>
+				</eq>
+				
+				<a href="{:U('Home/infor_changeStatus?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+				<!-- <a href="{:U('Vip/delete?id='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+            </td>
+		</tr>
+		</volist>
+	</tbody>  
+    </table> 
+	</div>
+    <div style="text-align:center;">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+	<script type="text/javascript">
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('home/travel')}"]').closest('li').addClass('current');
+    // 置顶操作
+    // function stick(_this,_id){
+
+    // 	var stick = $(_this).attr('stickval');
+    // 	$.ajax({
+    // 		type : 'GET',
+    // 		url : "{:U('news_stick')}",
+    // 		data : {"id":_id, "stick":stick},
+    // 		dataType: "json",
+    // 		success: function(data){
+    // 			if(data.status == 1){
+    // 				if($(_this).attr('stickval') == 1){
+    // 					$(_this).text('否');
+    // 				}else{
+    // 					$(_this).text('是');
+    // 				}
+    				
+    // 			}
+    // 		}
+    // 	});
+    // }
+	</script>
+</block>

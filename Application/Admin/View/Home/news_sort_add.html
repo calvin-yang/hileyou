@@ -1,0 +1,79 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>{$info['id']?'编辑':'新增'}文章分类</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">类名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="name" value="{$info.name}">
+            </div>
+        </div>
+		
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">所属分类<span class="check-tips"></span></label>
+            <div class="controls">
+               <select class="chzn-select" id="pid" name="pid">
+	               <option value="">父级分类</option>
+                    <if condition="$sort_list != false">
+                        <volist name="sort_list" id="vo">
+                            <option value="{$vo.id}" <eq name="info['id']" value="$vo['id']">selected</eq>>┯{$vo.name}</option>
+                        </volist>
+                        <if condition="$vo['sorts'] != false">
+                            <volist name="vo['sorts']" id="vos">
+                                <option value="{$vos.id}" <eq name="info['id']" value="$vos['id']">selected</eq>>└{$vos.name}</option>
+                            </volist>    
+                        </if>
+                    </if>
+               </select>
+            </div>
+        </div>
+        
+        
+               
+        
+
+        <div class="form-item cf">
+            <label class="item-label">状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status" value="1" <if condition="!isset($info['status']) || $info['status'] == 1">checked</if>>
+                    &nbsp;启用
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="0" <eq name="info['status']" value="0">checked</eq> >
+                    &nbsp;禁用
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                </div>
+                
+            </div>
+        </div>
+
+ 		
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <a href="{:U('inforList')}"><button class="btn btn-return" type="button">返 回</button></a>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Home/news_sort')}"]').closest('li').addClass('current');
+    </script>
+</block>

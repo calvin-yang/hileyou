@@ -1,0 +1,153 @@
+[ 2015-09-11T09:07:58+08:00 ] 127.0.0.1 /index.php?s=/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `tv_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.015600s ]
+SQL: UPDATE `tv_ucenter_member` SET `last_login_time`=1441933674,`last_login_ip`='2130706433' WHERE ( `id` = 1 ) [ RunTime:0.018601s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.009001s ]
+SQL: SELECT `uid`,`face_max_url`,`face_min_url`,`hobby_id`,`realname`,`IDcard`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`update_time`,`type`,`vip_id`,`imei`,`mobile_model` FROM `tv_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.015600s ]
+SQL: UPDATE `tv_member` SET `login`=`login`+1,`last_login_time`=1441933674,`last_login_ip`='2130706433' WHERE ( `uid` = 1 ) [ RunTime:0.000000s ]
+
+[ 2015-09-11T10:40:48+08:00 ] 127.0.0.1 /index.php?s=/menu/add/pid/2.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_menu` [ RunTime:0.032001s ]
+SQL: INSERT INTO `tv_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('ÁæéÊôØË¥¥Âõæ',0,'home/travel',2,'ÊñáÁ´†ÁÆ°ÁêÜ',0,0,'',0) [ RunTime:0.092006s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.084005s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.009000s ]
+SQL: SHOW COLUMNS FROM `tv_action_log` [ RunTime:0.034002s ]
+SQL: INSERT INTO `tv_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,2130706433,'Menu',177,1441939248,'Êìç‰ΩúurlÔºö/index.php?s=/menu/add/pid/2.html') [ RunTime:0.018001s ]
+
+[ 2015-09-11T10:41:14+08:00 ] 127.0.0.1 /index.php?s=/menu/edit/id/170.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_menu` [ RunTime:0.019001s ]
+SQL: UPDATE `tv_menu` SET `title`='ÂàÜÁ±ªÂàóË°®',`sort`=1,`url`='Home/news_sort',`pid`=2,`group`='ÊñáÁ´†ÁÆ°ÁêÜ',`hide`=0,`is_dev`=0,`tip`='' WHERE ( `id` = 170 ) [ RunTime:0.037002s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.015001s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.011000s ]
+SQL: SHOW COLUMNS FROM `tv_action_log` [ RunTime:0.008001s ]
+SQL: INSERT INTO `tv_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,2130706433,'Menu',170,1441939274,'Êìç‰ΩúurlÔºö/index.php?s=/menu/edit/id/170.html') [ RunTime:0.008001s ]
+
+[ 2015-09-11T10:41:21+08:00 ] 127.0.0.1 /index.php?s=/home/travel.html
+ERR: ÈùûÊ≥ïÊìç‰Ωú:travel
+
+[ 2015-09-11T11:10:23+08:00 ] 127.0.0.1 /index.php?s=/home/inforedit/type/1/id/7.html
+ERR: Ê®°Êùø‰∏çÂ≠òÂú®:./Application/Admin/View/Home/tledit.html
+
+[ 2015-09-11T11:13:44+08:00 ] 127.0.0.1 /index.php?s=/home/imguplode/type/news.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined property: ORG\Util\ImgUpload::$toFile C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php Á¨¨ 123 Ë°å.
+NOTIC: [8] Undefined offset: 1 C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php Á¨¨ 179 Ë°å.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_img` [ RunTime:0.009000s ]
+SQL: INSERT INTO `tv_img` (`url`,`insert_time`) VALUES ('./Uploads/news/1441941224.jpg',1441941224) [ RunTime:0.007000s ]
+
+[ 2015-09-11T11:13:49+08:00 ] 127.0.0.1 /index.php?s=/home/inforadd.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_news` [ RunTime:0.009001s ]
+SQL: INSERT INTO `tv_news` (`title`,`logo_img_url`,`content`,`status`,`type`,`id`,`uid`,`publisher`,`insert_time`) VALUES ('312123','388','<p>3213123123123</p>','1','1',0,1,'admin',1441941229) [ RunTime:0.012000s ]
+
+[ 2015-09-11T11:57:36+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=1&type=1
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.189011s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=1 and region_type=1 )  [ RunTime:0.013000s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-09-11T12:06:26+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=1&type=1
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.012001s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=1 and region_type=1 )  [ RunTime:0.024001s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2015-09-11T14:47:47+08:00 ] 127.0.0.1 /index.php?s=%2Fhome%2FProduct%2Fcity%2F80
+ERR: ÈùûÊ≥ïÊìç‰Ωú:city
+
+[ 2015-09-11T14:48:52+08:00 ] 127.0.0.1 /index.php?s=%2Fhome%2FProduct%2Findex%2Fcitys%2F333
+ERR: ”…”⁄¡¨Ω”∑Ω‘⁄“ª∂Œ ±º‰∫Û√ª”–’˝»∑¥∏¥ªÚ¡¨Ω”µƒ÷˜ª˙√ª”–∑¥”¶£¨¡¨Ω”≥¢ ‘ ß∞‹°£
+
+
+[ 2015-09-11T14:49:38+08:00 ] 127.0.0.1 /index.php?s=%2Fhome%2FProduct%2Findex%2Fcity%2F333
+ERR: ”…”⁄¡¨Ω”∑Ω‘⁄“ª∂Œ ±º‰∫Û√ª”–’˝»∑¥∏¥ªÚ¡¨Ω”µƒ÷˜ª˙√ª”–∑¥”¶£¨¡¨Ω”≥¢ ‘ ß∞‹°£
+
+
+[ 2015-09-11T14:52:19+08:00 ] 127.0.0.1 /index.php?s=%2Fhome%2FUcenter%2Fvoucher
+ERR: ”…”⁄¡¨Ω”∑Ω‘⁄“ª∂Œ ±º‰∫Û√ª”–’˝»∑¥∏¥ªÚ¡¨Ω”µƒ÷˜ª˙√ª”–∑¥”¶£¨¡¨Ω”≥¢ ‘ ß∞‹°£
+
+
+[ 2015-09-11T15:54:35+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=1&type=1
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=1 and region_type=1 )  [ RunTime:0.023002s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-09-11T15:54:36+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=120&type=3
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=120 and region_type=3 )  [ RunTime:0.012000s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-09-11T15:54:36+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=9&type=2
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.015001s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=9 and region_type=2 )  [ RunTime:0.009000s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

@@ -1,0 +1,532 @@
+[ 2015-09-08T09:00:42+08:00 ] 127.0.0.1 /index.php?s=/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `tv_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `tv_ucenter_member` SET `last_login_time`=1441674037,`last_login_ip`='2130706433' WHERE ( `id` = 1 ) [ RunTime:0.019600s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.020600s ]
+SQL: SELECT `uid`,`face_max_url`,`face_min_url`,`hobby_id`,`realname`,`IDcard`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`update_time`,`type`,`vip_id`,`imei`,`mobile_model` FROM `tv_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.012001s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.015600s ]
+SQL: UPDATE `tv_member` SET `login`=`login`+1,`last_login_time`=1441674037,`last_login_ip`='2130706433' WHERE ( `uid` = 1 ) [ RunTime:0.000000s ]
+
+[ 2015-09-08T09:18:47+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T09:18:52+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T09:18:56+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.000000s ]
+
+[ 2015-09-08T09:33:15+08:00 ] 127.0.0.1 /index.php?s=/facilitator/memberinfo.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.010001s ]
+SQL: SELECT `realname`,`IDcard` FROM `tv_member` WHERE ( uid = 49 ) LIMIT 1   [ RunTime:0.009001s ]
+
+[ 2015-09-08T09:33:20+08:00 ] 127.0.0.1 /index.php?s=/facilitator/imguplode.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined property: ORG\Util\ImgUpload::$toFile C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 123 行.
+NOTIC: [8] Undefined offset: 1 C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 179 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_img` [ RunTime:0.011000s ]
+SQL: INSERT INTO `tv_img` (`url`,`insert_time`) VALUES ('./Uploads/Facilitator/1441675995.jpg',1441676000) [ RunTime:0.006000s ]
+
+[ 2015-09-08T09:33:25+08:00 ] 127.0.0.1 /index.php?s=/facilitator/imguplode.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined property: ORG\Util\ImgUpload::$toFile C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 123 行.
+NOTIC: [8] Undefined offset: 1 C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 179 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_img` [ RunTime:0.025002s ]
+SQL: INSERT INTO `tv_img` (`url`,`insert_time`) VALUES ('./Uploads/Facilitator/1441676005.jpg',1441676005) [ RunTime:0.007000s ]
+
+[ 2015-09-08T09:33:28+08:00 ] 127.0.0.1 /index.php?s=/facilitator/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Model\FacilitatorDataModel::add() should be compatible with Think\Model::add($data = '', $options = Array, $replace = false) C:\wamp\www\tourism\Application\Admin\Model\FacilitatorDataModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.008001s ]
+SQL: SELECT * FROM `tv_facilitator_data` WHERE ( `realname` = '杨艺平' ) LIMIT 1   [ RunTime:0.009000s ]
+
+[ 2015-09-08T09:33:49+08:00 ] 127.0.0.1 /index.php?s=/facilitator/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Model\FacilitatorDataModel::add() should be compatible with Think\Model::add($data = '', $options = Array, $replace = false) C:\wamp\www\tourism\Application\Admin\Model\FacilitatorDataModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `tv_facilitator_data` WHERE ( `realname` = '徐益' ) LIMIT 1   [ RunTime:0.007001s ]
+SQL: SELECT * FROM `tv_facilitator_data` WHERE ( `uid` = 49 ) LIMIT 1   [ RunTime:0.013000s ]
+
+[ 2015-09-08T09:33:55+08:00 ] 127.0.0.1 /index.php?s=/facilitator/memberinfo.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.008000s ]
+SQL: SELECT `realname`,`IDcard` FROM `tv_member` WHERE ( uid = 51 ) LIMIT 1   [ RunTime:0.009001s ]
+
+[ 2015-09-08T09:34:02+08:00 ] 127.0.0.1 /index.php?s=/facilitator/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Model\FacilitatorDataModel::add() should be compatible with Think\Model::add($data = '', $options = Array, $replace = false) C:\wamp\www\tourism\Application\Admin\Model\FacilitatorDataModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.013001s ]
+
+[ 2015-09-08T09:34:08+08:00 ] 127.0.0.1 /index.php?s=/facilitator/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Model\FacilitatorDataModel::add() should be compatible with Think\Model::add($data = '', $options = Array, $replace = false) C:\wamp\www\tourism\Application\Admin\Model\FacilitatorDataModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.011001s ]
+SQL: SELECT * FROM `tv_facilitator_data` WHERE ( `realname` = '完全额外' ) LIMIT 1   [ RunTime:0.007000s ]
+SQL: SELECT * FROM `tv_facilitator_data` WHERE ( `uid` = 51 ) LIMIT 1   [ RunTime:0.010001s ]
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.027001s ]
+SQL: INSERT INTO `tv_facilitator_data` (`type`,`uid`,`realname`,`IDcard`,`business_licence`,`tel`,`address`,`operations_type`,`business_licence_url`,`status`,`id`,`IDcard_url`) VALUES (2,51,'完全额外','2342343242','45454','54545','4545','454','',1,0,'371,372') [ RunTime:0.031002s ]
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.009001s ]
+SQL: UPDATE `tv_member` SET `type`='2',`realname`='完全额外',`nickname`='完全额外' WHERE ( `uid` = 51 ) [ RunTime:0.011000s ]
+
+[ 2015-09-08T10:18:10+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.009000s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.010000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( `id` IN ('15','17') )  [ RunTime:0.010000s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 112 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 116 行.
+SQL: INSERT INTO `tv_message_text` (`message_text`,`sender_id`) VALUES ('23',1) [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `tv_message` [ RunTime:0.013001s ]
+SQL: INSERT INTO `tv_message` (`receiver_id`,`send_time`,`message_text_id`,`sender_id`) VALUES (15,1441678690,11,1),(17,1441678690,11,1) [ RunTime:0.008001s ]
+
+[ 2015-09-08T10:19:39+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.008001s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( `id` IN ('15','17') )  [ RunTime:0.009000s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 112 行.
+
+[ 2015-09-08T10:20:31+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( `id` IN ('15','17') )  [ RunTime:0.015600s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 113 行.
+
+[ 2015-09-08T10:25:24+08:00 ] 127.0.0.1 /index.php?s=/facilitator/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\FacilitatorController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\FacilitatorController.class.php 第 25 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.009001s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.015001s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( `id` IN ('49','51') )  [ RunTime:0.016001s ]
+
+[ 2015-09-08T10:36:51+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T10:36:58+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T10:37:36+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.019600s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( id = 45 ) LIMIT 1   [ RunTime:0.013001s ]
+
+[ 2015-09-08T10:38:09+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.012001s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.008000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( id = 45 ) LIMIT 1   [ RunTime:0.008001s ]
+
+[ 2015-09-08T10:38:18+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( `id` IN ('45','44') )  [ RunTime:0.015600s ]
+
+[ 2015-09-08T10:38:28+08:00 ] 127.0.0.1 /index.php?s=/user/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.013000s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.010000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( id = 49 ) LIMIT 1   [ RunTime:0.010001s ]
+SQL: INSERT INTO `tv_message_text` (`message_text`,`sender_id`,`message_title`) VALUES ('hjhjh',1,'海乐游系统通知') [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tv_message` [ RunTime:0.015600s ]
+SQL: INSERT INTO `tv_message` (`sender_id`,`receiver_id`,`send_time`,`message_text_id`) VALUES (1,49,1441679908,12) [ RunTime:0.015600s ]
+
+[ 2015-09-08T10:43:34+08:00 ] 127.0.0.1 /index.php?s=/vip/sendmessgae.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\VipController::delete() should be compatible with Admin\Controller\AdminController::delete($model, $where = Array, $msg = Array) C:\wamp\www\tourism\Application\Admin\Controller\VipController.class.php 第 18 行.
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.009000s ]
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.010000s ]
+SQL: SELECT `email` FROM `tv_ucenter_member` WHERE ( id = 43 ) LIMIT 1   [ RunTime:0.007001s ]
+
+[ 2015-09-08T11:11:58+08:00 ] 127.0.0.1 /index.php?s=/menu/add/pid/0.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_menu` [ RunTime:0.012001s ]
+SQL: INSERT INTO `tv_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('消息',0,'Message/index',0,'',0,0,'',0) [ RunTime:0.036002s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.016001s ]
+SQL: SHOW COLUMNS FROM `tv_action_log` [ RunTime:0.014001s ]
+SQL: INSERT INTO `tv_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,2130706433,'Menu',174,1441681918,'操作url：/index.php?s=/menu/add/pid/0.html') [ RunTime:0.008000s ]
+
+[ 2015-09-08T11:12:44+08:00 ] 127.0.0.1 /index.php?s=/menu/add/pid/174.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_menu` [ RunTime:0.014000s ]
+SQL: INSERT INTO `tv_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('消息列表',0,'Message/index',174,'消息管理',0,0,'',0) [ RunTime:0.027001s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `tv_action_log` [ RunTime:0.010001s ]
+SQL: INSERT INTO `tv_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,2130706433,'Menu',175,1441681964,'操作url：/index.php?s=/menu/add/pid/174.html') [ RunTime:0.011001s ]
+
+[ 2015-09-08T12:30:47+08:00 ] 127.0.0.1 /index.php?s=/message/inforadd.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:inforadd
+
+[ 2015-09-08T12:31:19+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: receiver_id C:\wamp\www\tourism\Application\Admin\Controller\MessageController.class.php 第 35 行.
+
+[ 2015-09-08T12:31:27+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.011000s ]
+
+[ 2015-09-08T12:31:39+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T12:33:40+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T12:34:06+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015001s ]
+
+[ 2015-09-08T12:34:12+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T14:11:35+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T14:12:20+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.034001s ]
+
+[ 2015-09-08T14:12:58+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.012001s ]
+
+[ 2015-09-08T14:13:39+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+
+[ 2015-09-08T14:13:46+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.011001s ]
+
+[ 2015-09-08T14:16:33+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.000000s ]
+
+[ 2015-09-08T14:16:38+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.014001s ]
+
+[ 2015-09-08T14:18:40+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.000000s ]
+
+[ 2015-09-08T14:18:45+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.013001s ]
+
+[ 2015-09-08T14:25:01+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.015600s ]
+SQL: INSERT INTO `tv_message_text` (`message_title`,`message_text`,`id`,`sender_id`,`type`) VALUES ('系统公告','<p><strong>非法所得大赛发送颠覆速度</strong></p>',0,1,2) [ RunTime:0.016600s ]
+SQL: SHOW COLUMNS FROM `tv_message` [ RunTime:0.001000s ]
+SQL: INSERT INTO `tv_message` (`sender_id`,`receiver_id`,`send_time`,`message_text_id`) VALUES (1,44,1441693501,13),(1,48,1441693501,13) [ RunTime:0.015600s ]
+
+[ 2015-09-08T14:59:30+08:00 ] 127.0.0.1 /index.php?s=/menu/add/pid/175.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_menu` [ RunTime:0.015600s ]
+SQL: INSERT INTO `tv_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('发送新消息',0,'Message/sendmsg',175,'',0,0,'',0) [ RunTime:0.093600s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.015600s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `tv_action_log` [ RunTime:0.012001s ]
+SQL: INSERT INTO `tv_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,2130706433,'Menu',176,1441695569,'操作url：/index.php?s=/menu/add/pid/175.html') [ RunTime:0.015600s ]
+
+[ 2015-09-08T15:30:50+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.009000s ]
+SQL: INSERT INTO `tv_message_text` (`message_title`,`message_text`,`id`,`sender_id`,`type`) VALUES ('wo ai ','<h1>dfsdfdsfsdfsdf<br/></h1><p><strong>dfsfdsfsdfdsfdsfsd</strong><br/></p><p><strong><br/></strong></p><p><span style=\"text-decoration: underline;\">dfdsfdsfsdfsdfdsfsdfsdfsdfsd</span><span style=\"text-decoration: none;\"></span><strong><br/></strong></p><p><span style=\"text-decoration: line-through;\">fdsffdsfdsfsdf</span></p>',0,1,2) [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `tv_message` [ RunTime:0.008000s ]
+SQL: INSERT INTO `tv_message` (`sender_id`,`receiver_id`,`send_time`,`message_text_id`) VALUES (1,49,1441697450,14) [ RunTime:0.007001s ]
+
+[ 2015-09-08T15:52:45+08:00 ] 127.0.0.1 /index.php?s=/message/sendmsg.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_message_text` [ RunTime:0.013001s ]
+SQL: INSERT INTO `tv_message_text` (`message_title`,`message_text`,`id`,`sender_id`,`type`) VALUES ('3423423423423','<p><img src=\"/ueditor/php/upload/image/20150908/1441698754782360.jpg\" title=\"1441698754782360.jpg\" alt=\"1.jpg\"/>急啊急啊急啊急啊急啊急啊急啊急啊</p>',0,1,2) [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `tv_message` [ RunTime:0.006001s ]
+SQL: INSERT INTO `tv_message` (`sender_id`,`receiver_id`,`send_time`,`message_text_id`) VALUES (1,44,1441698765,15) [ RunTime:0.006000s ]
+
+[ 2015-09-08T16:06:16+08:00 ] 127.0.0.1 /index.php?s=%2Fhome%2FOrder%2F
+ERR: 非法操作:index
+
+[ 2015-09-08T16:36:40+08:00 ] 127.0.0.1 /index.php?s=/config/save.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_config` [ RunTime:0.014001s ]
+SQL: UPDATE `tv_config` SET `value`='200' WHERE ( `name` = 'CONSUMPTION' ) [ RunTime:0.008001s ]
+SQL: UPDATE `tv_config` SET `value`='0.02' WHERE ( `name` = 'USING_INTEGRAL' ) [ RunTime:0.006000s ]
+SQL: UPDATE `tv_config` SET `value`='0' WHERE ( `name` = 'POINTS_ON_OFF' ) [ RunTime:0.007001s ]
+
+[ 2015-09-08T16:36:53+08:00 ] 127.0.0.1 /index.php?s=/config/save.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_config` [ RunTime:0.015600s ]
+SQL: UPDATE `tv_config` SET `value`='200' WHERE ( `name` = 'CONSUMPTION' ) [ RunTime:0.000000s ]
+SQL: UPDATE `tv_config` SET `value`='0.02' WHERE ( `name` = 'USING_INTEGRAL' ) [ RunTime:0.015600s ]
+SQL: UPDATE `tv_config` SET `value`='1' WHERE ( `name` = 'POINTS_ON_OFF' ) [ RunTime:0.000000s ]
+
+[ 2015-09-08T17:03:11+08:00 ] 127.0.0.1 /index.php?s=/home/order
+ERR: Think\Model:geLastSql您所请求的方法不存在！
+

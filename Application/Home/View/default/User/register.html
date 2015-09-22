@@ -1,0 +1,161 @@
+<extend name="Base/common" />
+<block name="header">
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h2>用户注册</h2>
+    <p><span><span class="pull-left"><span>已经有账号? <a href="{:U('User/login')}">点此登录</a> </span> </span></p>
+  </div>
+</header>
+</block>
+
+<block name="body">
+
+<div class="djs lxftime" nowtime="" endtime="" col="0" lxfday="no"></div>
+
+<section>
+	<div class="span12">
+        <form class="login-form" action="__SELF__" method="post">
+          <!-- <div class="control-group">
+            <label class="control-label" for="inputEmail">用户名</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" class="span3" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">邮箱</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" class="span3" placeholder="请输入电子邮件"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="email">
+            </div>
+          </div> -->
+          <div class="control-group">
+            <label class="control-label" for="Mobile">手机号</label>
+            <div class="controls">
+              <input type="text" id="mobile"  class="span3" placeholder="请输入手机号"  name="mobile"> &nbsp;&nbsp;
+            </div>
+            <button type="button" class="btn catch" onclick="return sendcach(this);" surl="{:U('creat_verify')}">点击发送验证码</button>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="Mobile">手机验证码</label>
+            <div class="controls">
+              <input type="text" id="verify"  class="span3" placeholder="请输入手机验证码"  name="verify"> &nbsp;&nbsp;
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">密码</label>
+            <div class="controls">
+              <input type="password" id="inputPassword"  class="span3" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">确认密码</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" class="span3" placeholder="请再次输入密码" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
+            </div>
+          </div>
+
+          
+          <div class="controls Validform_checktip text-warning"></div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn">注 册</button>
+            </div>
+          </div>
+        </form>
+	</div>
+</section>
+
+</block>
+
+<block name="side"> </block>
+<block name="script">
+	<script type="text/javascript">
+    	$(document)
+        .ajaxStart(function(){
+          $("button:submit").addClass("log-in").attr("disabled", true);
+        })
+        .ajaxStop(function(){
+          $("button:submit").removeClass("log-in").attr("disabled", false);
+        });
+
+
+      $("form").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+          if(data.status){
+            window.location.href = data.url;
+          } else {
+            self.find(".Validform_checktip").text(data.info);
+          }
+        }
+      });
+
+
+        //倒计时
+        function lxfEndtime() {
+                $(".lxftime").each(function () {
+                    var lxfday = $(this).attr("lxfday"); //用来判断是否显示天数的变量
+                    var endtime = $(this).attr("endtime"); //取结束日期(毫秒值)
+                    var nowtime = $(this).attr("nowtime");        //今天的日期(毫秒值)服务器时间
+                    var youtime = endtime - nowtime; //还有多久(毫秒值)
+                    var seconds = youtime / 1000;     //还有多久(秒值)
+                    if (endtime <= nowtime) {
+                        $('.catch').attr('disabled',false);
+                        $(".catch").text("点击发送验证码"); //如果结束日期小于当前日期就提示过期啦
+                    } else {
+                        if ($(this).attr("lxfday") == "no") {
+                            $(".catch").text(seconds + "秒"); //输出数据
+                        } 
+                            // $(this).html("VIP剩余：" + (days<10?"0"+days:days) + "天" + (CHour<10?"0"+CHour:CHour) + "小时" + (CMinute<10?"0"+CMinute:CMinute) + "分" + (CSecond<10?"0"+CSecond:CSecond) + "秒"+(CMSecond<10?"0"+CMSecond:CMSecond)+"毫秒"); //输出有天数的数据
+                        }
+                        //当前时间变化
+                        $(this).attr("nowtime", (nowtime*1 + 1000*1));
+                    
+                });
+                setTimeout("lxfEndtime()", 1000);
+        }
+        function sendcach(_this){
+          var mobile = $("#mobile").val();
+          var isMob=/^((\+?86)|(\(\+86\)))?(13[0123456789][0-9]{8}|15[012356789][0-9]{8}|18[02356789][0-9]{8}|147[0-9]{8}|1349[0-9]{7})$/;
+          if(mobile == ""){
+            $(".Validform_checktip").text('请填写手机号');
+            return false;
+          }else if(!isMob.test(mobile)){
+            $(".Validform_checktip").text('手机格式不正确！');
+            return false;
+          }
+          $(".Validform_checktip").text('');
+          var CSecond = 30;  //设置接收短信的时间（秒）
+          var nowtime = new Date().getTime();        //今天的日期(毫秒值)服务器时间
+          var endtime = nowtime + (CSecond * 1000); //结束日期(毫秒值)
+          //更新当前时间
+          $(".djs").attr("nowtime", nowtime);
+          $(".djs").attr("endtime", endtime);
+          $('.catch').attr('disabled','disabled');
+          var action_url = $(_this).attr('surl');
+          lxfEndtime();
+          $.ajax({
+              url : action_url,
+              type : "POST",
+              data : {"mobile" : mobile},
+              datatype : "json",
+              //在请求之前调用的函数
+              beforeSend:function(){},
+              //成功返回之后调用的函数 
+              success:function(data){
+                alert(data.verify);
+              }
+          });
+        }
+	</script>
+</block>
+
+
+
+
+

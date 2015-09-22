@@ -1,0 +1,232 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>{$info['id']?'编辑':'新增'}餐饮</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">餐饮封面图 *<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                             <span class="img_up"><input type="file" name="img" upUrl="{:U('ProList/imgUplode',array('type'=>'eat'))}" at="logo_img_url" onchange="img_upload(this,'1');"></span>
+                            <input id="logo_img_url" type="hidden" name="logo_img_url" value="{$info.logo_img_url}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"><notempty name="info.logo_img_url"><div style='float: left;margin-left: 5px;'><img src='{$info.logo_img_url}' width='220px' height = '111px'></div></notempty></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">餐饮图片<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('ProList/imgUplode',array('type'=>'eat'))}" at="foot_img_url" dele="" onchange="img_upload(this,'2');"></span>
+                            <input id="foot_img_url" type="hidden" name="foot_img_url" value="{$info.foot_img_url}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg">
+                        <php>
+                        if($info['foot_img_url'] != ''){
+                            $foot_img_arr = str2arr($info['foot_img_url'],'|');
+                            array_pop($foot_img_arr);
+                            foreach($foot_img_arr as $foot_img_list){
+                                echo "<div style='float: left;margin-left: 5px;'><span class='dele' img_delete='".U('ProList/img_delete',array('type'=>'eat2'))."' style='float:right;cursor:pointer;' onclick='img_delete(this);'>删除</span><img src='$foot_img_list' class='img' width='220px' height = '111px'></div>";
+                            }
+                        }
+                        
+                        </php>
+                       
+                   </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">环境图片<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('ProList/imgUplode',array('type'=>'eat'))}" at="environment_img_url" dele="" onchange="img_upload(this,'2');"></span>
+                            <input id="environment_img_url" type="hidden" name="environment_img_url" value="{$info.environment_img_url}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg">
+                        <php>
+                        if($info['environment_img_url'] != ''){
+                            $environment_img_arr = str2arr($info['environment_img_url'],'|');
+                            array_pop($environment_img_arr);
+                            foreach($environment_img_arr as $environment_img_list){
+                                echo "<div style='float: left;margin-left: 5px;'><span class='dele' img_delete='".U('ProList/img_delete',array('type'=>'eat1'))."' style='float:right;cursor:pointer;' onclick='img_delete(this);'>删除</span><img src='$environment_img_list' class='img' width='220px' height = '111px'></div>";
+                            }
+                        }
+                        
+                        </php>
+                       
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">餐饮店名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="foot_name" value="{$info.foot_name}">*
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">营业时间<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " style="width:100px" name="business_hours1" value="{$info.business_hours1}">-
+                <input type="text" class="text input-large " style="width:100px" name="business_hours2" value="{$info.business_hours2}">
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">餐饮电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="foot_tel" value="{$info.foot_tel}">*
+            </div>
+        </div>
+
+
+        <div class="form-item cf">
+            <label class="item-label">餐饮类型<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="type" name="type">
+                    <volist name="eat_type_list['name']" id="vo">
+                        <option value="{$vo}" <if condition="$info.type eq $vo">selected</if>>{$vo}</option>
+                    </volist>
+                </select>*
+            </div>
+        </div>
+
+        
+
+        <div class="form-item cf">
+            <label class="item-label">所在地址<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="address" value="{$info.address}">*
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">附近交通<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="nearby_traffic">{$info.nearby_traffic|default=''}</textarea>
+                </label>
+            </div>
+        </div>
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)人均消费<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="per_capita" value="{$info.per_capita|default=0}">*
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)优惠价<span class="check-tips">(0：无优惠价)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="favorable_price" value="{$info.favorable_price|default=0}">
+            </div>
+        </div>
+
+        <!-- vip价 start -->
+        <volist name="vip_list" id="vo">
+            <div class="form-item cf">
+                <label class="item-label">(￥){$vo.name}价<span class="check-tips">(0：无vip价)</span></label>
+                <div class="controls">
+                    <input type="number" class="text input-large " name="vip[]" value="0">
+                    <input type="hidden" class="text input-large " name="vip_id[]" value="{$vo.id}">
+                </div>
+            </div>
+        </volist>
+        <!-- vip价 end-->
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)现金劵<span class="check-tips">(/一百元)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="voucher" value="{$info.voucher}">*
+            </div>
+        </div>
+        
+
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $("#submit").click(function(){
+            $("#facilities").val($("#facilitie").val());
+        });
+
+       	
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('ProList/eatlist')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        jQuery("#facilitie").chosen({disable_search_threshold: 5});
+        jQuery("#type").chosen({disable_search_threshold: 5});
+        jQuery("#bed_type").chosen({disable_search_threshold: 5});
+        
+        function img_delete(_this){
+            var img_url = $(_this).parent().find('.img').attr('src');
+            var img_delete_url = $(_this).attr('img_delete');
+            var id = "{:$_GET['id']}";
+            $(_this).parent().remove();
+            $.ajax({
+                url : img_delete_url,
+                data : {'img_url' : img_url,'type' : 'ProList','id' : id},
+                type : 'POST',
+                success : function(data){
+                    
+                    $("#hel_img_url").val(data);
+                }
+
+            });
+        };
+    </script>
+
+</block>

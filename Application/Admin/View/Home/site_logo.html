@@ -1,0 +1,104 @@
+<extend name="Public/base"/>
+
+<block name="style">
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>平台LOGO图设置</h2>
+    </div>
+    <!-- <form action="__SELF__" method="post" class="form-horizontal" enctype="multipart/from-data"> -->
+    <form action="__SELF__" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+    
+        <div class="form-item cf">
+            <label class="item-label">
+                LOGO图上传
+                <span class="check-tips"></span>
+            </label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">(上传/更新)图片</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('Home/imgUplode')}" at="img_url" onchange="img_upload(this,1);"></span>
+                            <input id="img_url" type="hidden" name="img_url" value="{$info.img_url}" />
+                            <input type="hidden" name="id" value="{$info.id}" />
+                            <input type="hidden" name="type" value="{$info.type|default=6}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                        <!-- <div id="showimg"></div> -->
+                   </div>
+                   <php>$img_url = getImgUrl($info['img_url']);</php>
+                   <div class="col-md-12 column" id="showimg"><img src="{:($img_url)?$img_url[0]['url']:''}" width="220px" height="111px"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- <div class="form-item cf">
+            <label class="item-label">副标题<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="retitle[]" value="{$vo.retitle}">*
+            </div>
+        </div> -->
+
+
+
+        <div class="form-item cf">
+            <label class="item-label">状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status" value="0" <eq name="info.status" value="0">checked</eq>>
+                    &nbsp;禁用
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="1" <if condition="$info['status'] == '' || $info['status'] == 1">checked</if>>
+                    &nbsp;启用
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        
+
+       
+        
+
+        
+        
+
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <!-- <button class="btn submit-btn" id="submit" type="submit" target-form="form-horizontal">确 定</button> -->
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+
+
+            
+</block>
+
+
+<block name="script">
+
+    <script type="text/javascript">
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Home/site_logo')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        jQuery("#mobile").chosen();
+
+    </script>
+    
+</block>

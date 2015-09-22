@@ -1,0 +1,70 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>发送系统消息</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">收件人<span class="check-tips"></span></label>
+            <div class="">
+                <select  id="receiver_ids" class="chzn-select" multiple style="width:350px;"tabindex="6">
+                <!-- <select style="width: 300px" class="chzn-select" id="facilities" name="facilities"> -->
+                <!-- <select name="mobile"> -->
+                    <volist name="mblist" id="vo">
+                        <option value="{$vo.id}">{$vo.mobile}</option>
+                    </volist>
+                </select>
+                <input type="hidden" name="receiver_id" id="receiver_id" value="" />
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">标题<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="message_title" value="">
+            </div>
+        </div>
+		
+           
+        <div class="form-item cf">
+            <label class="item-label">内容<span class="check-tips"></span></label>
+       		<div class="controls">
+       		<textarea name="message_text" id="myEditor" style="width:800px;height:500px;"></textarea>
+       		</div>
+        </div>
+        
+        
+        
+
+
+ 		
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <a href="{:U('inforList')}"><button class="btn btn-return" type="button">返 回</button></a>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+	<script src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+	<script src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+       	UE.getEditor('myEditor');
+        // 然后在select元素上启用chose
+        jQuery("#receiver_ids").chosen({disable_search_threshold: 6});
+        $("#submit").click(function(){
+            $("#receiver_id").val($("#receiver_ids").val());
+        });
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('message/index')}"]').closest('li').addClass('current');
+    </script>
+</block>

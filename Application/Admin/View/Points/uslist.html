@@ -1,0 +1,72 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>用户积分行为</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <button class="btn ajax-post confirm" url="{:U('Points/usdelete',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div>
+
+        
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">ID</th>
+		<th class="">用户</th>
+		<th class="">积分</th>
+		<th class="">途径</th>
+		<th class="">描述</th>
+		<th class="">时间</th>
+		<th class="">类型</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+			<td>{$vo.id} </td>
+			<td>{$vo.mobile}</td>
+			<td>{$vo.val}</td>
+			<td>{$vo.url}</td>
+			<td>{$vo.content}</td>
+			<td>{$vo.insert_time|time_format}</td>
+			<td>
+				<eq name="vo['type']" value="0">
+					消费
+				<else />
+					获取
+				</eq>
+			</td>
+
+			<td>
+				
+				<a href="{:U('Points/usdelete?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+				<!-- <a href="{:U('Vip/delete?id='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+                </td>
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('points/uslist')}"]').closest('li').addClass('current');
+	</script>
+</block>

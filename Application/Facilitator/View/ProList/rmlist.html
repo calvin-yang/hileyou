@@ -1,0 +1,125 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>房源列表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('ProList/rmadd')}">新 增</a>
+            <button class="btn ajax-post" url="{:U('ProList/rm_changeStatus',array('method'=>'resumeUser'))}" target-form="ids">上 架</button>
+            <button class="btn ajax-post" url="{:U('ProList/rm_changeStatus',array('method'=>'forbidUser'))}" target-form="ids">下 架</button>
+            <button class="btn ajax-post confirm" url="{:U('ProList/rm_changeStatus',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div>
+
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+			<div class="sleft">
+				<div class="drop-down">
+					<span id="sch-sort-txt" class="sort-txt" data="{$status}"><if condition="get_status_title($_GET['status']) eq ''">所有<else/>{:get_status_title($_GET['status'])}</if></span>
+					<i class="arrow arrow-down"></i>
+					<ul id="sub-sch-menu" class="nav-list hidden">
+						<li><a href="javascript:;" value="">所有</a></li>
+						<li><a href="javascript:;" value="1">已上架</a></li>
+						<li><a href="javascript:;" value="0">已下架</a></li>
+						<li><a href="javascript:;" value="3">待通过</a></li>
+						<li><a href="javascript:;" value="4">不通过</a></li>
+					</ul>
+				</div>
+				<input type="text" name="title" class="search-input" value="{:I('title')}" placeholder="请输入餐饮名称">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('ProList/rmlist')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+
+        
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class=""></th>
+		<th class="">房源名称</th>
+		<th class="">每天价(￥)</th>
+		<th class="">押金(￥)</th>
+		<th class="">业主名</th>
+		<th class="">业主电话</th>
+		<th class="">上传者</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <php>$img_url = getImgUrl($vo['logo_img_url']);</php>
+            <td height="100px"><img src="{:($img_url[0]['url'])?$img_url[0]['url']:''}" width='100px';height='100px'></td>
+			<td>{:str_cut($vo['hel_name'],20)} </td>
+			<td>{:(ceil($vo['favorable_price']) == 0)?$vo['day_price']:$vo['favorable_price'].'<br /><span style="color:darkgray;"><s>'.$vo['day_price'].'</s></span>'} </td>
+			<td>{$vo.deposit}</td>
+			<td>{$vo.name}</td>
+			<td>{$vo.hel_tel}</td>
+			<td>{:($vo['realname'] != "")?$vo['realname']:$vo['nickname']}</td>
+			<td>{$vo.status_text}</td>
+			<td>
+				<a href="{:U('ProList/rmedit?id='.$vo['id'])}" target="_blank">编辑</a>
+				<if condition="$vo['status'] eq '0'">
+					<a href="{:U('ProList/rm_changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">上架</a>
+				<elseif condition="$vo['status'] eq '1'" />
+					<a href="{:U('ProList/rm_changeStatus?method=forbidUser&id='.$vo['id'])}" class="ajax-get">下架</a>
+				</if>
+				<a href="{:U('ProList/rm_changeStatus?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+				<!-- <a href="{:U('Vip/delete?id='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+                </td>
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+		var status = $("#sch-sort-txt").attr("data");
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+		if(status != ''){
+			query += 'status=' + status + "&" + query;
+        }
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+
+	/* 状态搜索子菜单 */
+	$(".search-form").find(".drop-down").hover(function(){
+		$("#sub-sch-menu").removeClass("hidden");
+	},function(){
+		$("#sub-sch-menu").addClass("hidden");
+	});
+	$("#sub-sch-menu li").find("a").each(function(){
+		$(this).click(function(){
+			var text = $(this).text();
+			$("#sch-sort-txt").text(text).attr("data",$(this).attr("value"));
+			$("#sub-sch-menu").addClass("hidden");
+		})
+	});
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('ProList/rmlist')}"]').closest('li').addClass('current');
+	</script>
+</block>

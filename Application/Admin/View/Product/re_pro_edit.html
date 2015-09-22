@@ -1,0 +1,203 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>编辑线路活动&nbsp;&nbsp;<span class="check-tips">{:I('get.day')}天{:I('get.night')}夜游</span></h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+        
+
+        <div class="container-fluid">
+            
+            <for start="1" end="I('get.night')+1" step="1">
+                
+            <div class="o">
+            <div class="day-{$i}" style="margin-bottom:15px;">
+
+                <div>
+                    第{$i}天&nbsp;&nbsp;
+                    <button class="btn submit-btn" id="insert" type="button" target-form="form-horizontal" onclick="insert_pro(this,{:$i});">添加活动</button>
+                </div>
+                <input type="hidden" name="day[]" value="{:$i}" />
+                <input type="hidden" name="route_id" value="{:I('get.id')}" />
+                <php>$nu_number = 0;</php>
+                
+                <php>
+                    $table = 'RouteDetails';
+                    $map['route_id'] = array('eq',I('get.id'));
+                    $map['day'] = array('eq',$i);
+                    $map['status'] = array('neq','2');
+                    $list = get_table_fields($table,'',$map);
+                </php>
+
+                <foreach  name="list" item="vo">
+                    <input type="hidden" name="id{$i}[]" value="{$vo.id}" />
+                    <div class="des">
+
+                    <div class="pro-{$i} de">
+                        <div class="form-item cf">
+                            <label class="item-label">活动时间<span class="check-tips" csid="{$vo.id}" onclick="delete_hou(this);">(删除活动)</span></label>
+                            <div class="controls">
+                                <input type="time" class="text input-large " style="width:100px" name="start_time{$i}[]" value="{$vo.start_time}">
+                                -
+                                <input type="time" class="text input-large " style="width:100px" name="end_time{$i}[]" value="{$vo.end_time}">&nbsp;&nbsp;*
+                            </div>
+                        </div>
+
+                        <div class="form-item cf">
+                            <label class="item-label">描述<span class="check-tips"></span></label>
+                            <div class="controls">
+                                <label class="textarea input-large">
+                                    <textarea name="bewrite{$i}[]">{$vo.bewrite}</textarea>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-item cf">
+                            <label class="item-label">活动类型<span class="check-tips"></span></label>
+                            <div class="">
+                                <select style="width: 300px" class="chzn-select" id="type{$nu_number}" name="type{$i}[]" onchange="pro_select(this,{$i});">
+                                    <option value="">--请选择--</option>
+                                    <option value="1" <eq name="vo['type']" value="1">selected</eq>>住</option>
+                                    <option value="2" <eq name="vo['type']" value="2">selected</eq>>吃</option>
+                                    <option value="3" <eq name="vo['type']" value="3">selected</eq>>玩</option>
+                                    <option value="4" <eq name="vo['type']" value="4">selected</eq>>其他</option>
+                                </select>&nbsp;&nbsp;*
+                            </div>
+                        </div>
+
+                        <div class="form-item cf pro">
+                            <if condition="$vo['pro_id'] neq ''">
+                            <span class="remov-{$nu_number}">
+                                <label class="item-label">活动<span class="check-tips"></span></label>
+                                <div class="">
+                                    <php>$pro_list = get_pro_fields($vo['pro_id'],'id',$vo['type']);</php>
+                                    <select style="width: 300px" class="chzn-select" id="pro_id" name="pro_id{$i}[]">
+                                        <foreach  name="pro_list" item="pro_list">
+                                            <option value="{$pro_list.id}-{$pro_list.name}" <eq name="vo['pro_id']" value="$pro_list['id']">selected</eq>>{$pro_list.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </span>&nbsp;&nbsp;*
+                        </div>
+                        </if>
+                        <input type="hidden" name="pro_name{$i}[]" id="pro_name{$i}" />
+                    </div>
+                    <php>$nu_number = $nu_number + 1;</php>
+                </div>
+                </foreach>
+                <input type="hidden" class="nu{:$i}" value="{:$nu_number}" />
+               
+            </div>
+            </div>
+            </for>
+
+        </div>
+
+
+
+        
+
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">更新</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+       
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Product/relist')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        
+        function insert_pro(_this,_number){
+            //alert($(_this).parents().find(".day-"+_number).html());
+            var nu = parseInt($(_this).parents().find('.nu'+_number).val()) + 1;
+            $(_this).parents().find('.nu'+_number).val(nu);
+            var _html = '<div class="des">';
+                _html += '<div class="pro-'+_number+' de">';
+
+                _html += '<div class="form-item cf"><label class="item-label">活动时间<span class="check-tips" onclick="delete_hou(this);" csid="">(删除活动)</span></label><div class="controls"><input type="time" class="text input-large " style="width:100px" name="start_time'+_number+'[]" value="">-<input type="time" class="text input-large " style="width:100px" name="end_time'+_number+'[]" value="">&nbsp;&nbsp;*</div></div>';
+
+                _html += '<div class="form-item cf"><label class="item-label">描述<span class="check-tips"></span></label><div class="controls"><label class="textarea input-large"><textarea name="bewrite'+_number+'[]"></textarea></label></div></div>';
+
+                _html += '<div class="form-item cf"><label class="item-label">活动类型<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="type'+nu+'" name="type'+_number+'[]" onchange="pro_select(this,'+_number+');"><option value="">--请选择--</option><option value="1" >住</option><option value="2" >吃</option><option value="3" >玩</option><option value="4" >其他</option></select>&nbsp;&nbsp;*</div></div>';
+
+
+                _html += '<div class="form-item cf pro"></div>';
+                _html += '<input type="hidden" name="pro_name'+_number+'[]" id="pro_name'+_number+'" />';
+                _html += '</div>';
+                _html += '</div>';
+
+                $(_this).parent().parent().parent().find(".day-"+_number).append(_html);
+                $(_this).parents().find("#type"+nu).chosen({disable_search_threshold: 5});
+
+                
+                //jQuery("#type"+_number).chosen({disable_search_threshold: 5});
+        }
+        function pro_select(_this,_number){
+            var pro_type = $(_this).val();
+            $(_this).parent().parent().parent().find('.pro').html('');
+            if(pro_type == ""){
+                $(_this).parent().parent().parent().find('.pro').html("请选择活动类型");
+                return false;
+            }else if(pro_type == '4'){
+                return false;
+            }
+            $.ajax({
+                url : "{:U('pro_select')}",
+                data : {"pro_type" : pro_type},
+                type : "POST",
+                dataType : "json",
+                success : function(data){
+
+                    $(_this).parent().parent().parent().find('.pro').html('<span class="remov"><label class="item-label">活动<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="pro_id" name="pro_id'+_number+'[]"></select></div></span>&nbsp;&nbsp;*');
+                    $.each(data, function(i, item) {
+                        //alert($(_this).parents().parents().parents().html());
+                        $(_this).parent().parent().parent().find("#pro_id").append("<option value='" + item.id +'-'+ item.name + "'>" + item.name + "</option>");
+                    });
+                    $(_this).parent().parent().parent().find("#pro_id").chosen({disable_search_threshold: 5});
+                }
+            });
+        }
+
+        //删除活动
+        function delete_hou(_this){
+            if(confirm('确定要删除吗？')){
+                var a = $(_this).parent().parent().parent().parent().find('.de');
+                //alert($(_this).parent().parent().parent().parent().find('.de').html());
+                var _id = $(_this).attr('csid');
+             
+                if(_id != ""){
+                    $.ajax({
+                        url : "{:U('pro_delete')}",
+                        data : {"id" : _id},
+                        type : "POST",
+                        dataType : "json",
+                        success : function(data){
+                            
+                        }
+                    });
+                }
+                
+                a.remove();
+            }
+            
+        }
+
+        
+    </script>
+
+</block>

@@ -1,0 +1,60 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>财务列表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <button class="btn">平台总金额：{:$price_num}&nbsp; RMB</button>
+        </div>
+
+        
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="">用户ID</th>
+		<th class="">用户拥有金额(￥)</th>
+		<th class="">最后一笔交易金额(￥)</th>
+		<th class="">最后一笔交易世间</th>
+		<th class="">注册手机号</th>
+		<th class="">用户真实姓名</th>
+		
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+			<td>{$vo.uid} </td>
+			<td>{$vo.price}</td>
+			<td>{:$vo['last_price']}</td>
+			<td>{:time_format($vo['last_time'])}</td>
+			<td>{:$vo['mobile']}</td>
+			<td>{:$vo['realname']?$vo['realname']:'暂无'}</td>
+			
+			
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+    <div style="text-align:center;">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	
+
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('Order/financial')}"]').closest('li').addClass('current');
+	</script>
+</block>

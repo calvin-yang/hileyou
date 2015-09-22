@@ -1,0 +1,349 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>{$info['id']?'编辑':'新增'}路线</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">路线封面图<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                             <span class="img_up"><input type="file" name="img" upUrl="{:U('Product/imgUplode',array('type' => 'route'))}" at="logo_img_url" onchange="img_upload(this,'1');"></span>
+                            <input id="logo_img_url" type="hidden" name="logo_img_url" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">路线名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="title" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">联系人<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="chief" value="">
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">联系电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="tel" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">游玩时间<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="day" value="" width="30px;">&nbsp;天&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" class="text input-large " name="night" value="" width="30px;">&nbsp;夜
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">省份<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="provinces" name="provinces">
+                        <option value="">--请选择--</option>
+                </select>
+            </div>
+        </div>
+        <!-- 市 -->
+        <div class="form-item cf city"></div>
+        <!-- 区 -->
+        <div class="form-item cf county"></div>
+
+        <div class="form-item cf">
+            <label class="item-label">出发地点<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="starting_city" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">集合地点<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="set_placc" value="">
+            </div>
+        </div>
+
+         <div class="form-item cf">
+            <label class="item-label">目的地<span class="check-tips">(多个目的地请用+号分隔开)</span></label>
+            <div class="controls">
+                
+                    <input type="text" class="text input-large " name="destination" value="">
+
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">交通工具<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="traffic_infermation"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">租车<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+
+                    <textarea name="rental"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">介绍<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="introduce"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">费用说明<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="cost_description"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">吃住说明<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="housed_explain"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">注意事项<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="notes"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">组团人数<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="team_number" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">最低报名人数<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="lowest_team_number" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">有效时间<span class="check-tips">(格式:YYYY-MM-DD至YYYY-MM-DD、0:长期有效)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="departure_date" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">出发日期<span class="check-tips">(格式:YYYY-MM-DD、0:不限)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="effective_date" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">保险<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="insurance" value="">
+            </div>
+        </div>
+
+
+
+        
+
+        
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)普通价<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="number" class="text input-large price" name="price" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)优惠价<span class="check-tips">(0：无优惠价)</span>
+                 <input type="number" class="text input-large " name="zhekou" value="0"  style="width:50px;" oninput="OnInput (this,event)" onpropertychange="OnPropChanged (this,event)" >%
+            </label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="favorable_price" value="0">
+            </div>
+        </div>
+
+        <!-- vip价 start -->
+        <volist name="vip_list" id="vo">
+            <div class="form-item cf">
+                <label class="item-label">(%折){$vo.name}价<span class="check-tips">(0：无vip价)</span></label>
+                <div class="controls">
+                    <input type="number" class="text input-large " name="vip[]" value="{:$vo['discount']}">
+                    <input type="hidden" class="text input-large " name="vip_id[]" value="{$vo.id}">
+                </div>
+            </div>
+        </volist>
+        <!-- vip价 end-->
+
+        <div class="form-item cf">
+            <label class="item-label">启用<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status" value="0">
+                    &nbsp;下架
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="1" checked>
+                    &nbsp;上架
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="3">
+                    &nbsp;待通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="4">
+                    &nbsp;不通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">下一步</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+       
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Product/relist')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        
+    </script>
+
+    <script type="text/javascript">
+
+        $("document").ready(function(){
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type=1表示查询省份
+                data: {"parent_id": "1", "type": "1"},
+                dataType: "json",
+                success: function(data) {
+                    $.each(data, function(i, item) {
+                        $("#provinces").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#provinces").chosen({disable_search_threshold: 5});
+                }
+            });
+        });
+
+        $("#submit").click(function(){
+            $("#facilities").val($("#facilitie").val());
+        });
+
+        $("#provinces").change(function() {
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type =2表示查询市
+                data: {"parent_id": $(this).val(), "type": "2"},
+                dataType: "json",
+                success: function(data) {
+                    $(".city").html('<label class="item-label">市区<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="citys" name="citys" onchange="citys_change(this);"><option value="">--请选择--</option></select></div>');
+                    $.each(data, function(i, item) {
+                        $("#citys").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#citys").chosen({disable_search_threshold: 5});
+                }
+            });
+        });
+
+        function citys_change(_this){
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type =2表示查询市
+                data: {"parent_id": $(_this).val(), "type": "3"},
+                dataType: "json",
+                success: function(data) {
+                    $(".county").html('<label class="item-label">县区<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="countys" name="countys"><option value="">--请选择--</option></select></div>');
+                    $.each(data, function(i, item) {
+                        $("#countys").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#countys").chosen({disable_search_threshold: 5});
+                }
+            });
+        }
+    // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput (_this,event) {
+            var price = $(".price").val();
+
+            if(price != ""){
+                var favorable_price = price * ($(_this).val()/100);
+                $('.favorable_price').val(favorable_price);
+            }
+        }
+    // Internet Explorer
+        function OnPropChanged (_this,event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                var price = $(".price").val();
+                if($price != ""){
+                    var favorable_price = price * $(_this).val();
+                    $('favorable_price').val(favorable_price);
+                }
+            }
+        }
+    </script>
+
+</block>

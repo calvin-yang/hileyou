@@ -1,0 +1,98 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>我的账户</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">账户类型<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="type" disabled="disabled" value="">
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">账户名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="realname" disabled="disabled" value="{$info.realname}">
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">证件号码<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="IDcard" value="{$info.IDcard}">
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">折扣单价<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="discount_unit_price" value="{$info.discount_unit_price}">
+            </div>
+        </div>
+        
+        <eq name="info['type']" value="1">
+            <div class="form-item cf">
+                <label class="item-label">营业执照号码<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large " name="business_licence" value="{$info.business_licence}">
+                </div>
+            </div>
+        </eq>
+        
+        <div class="form-item cf">
+            <label class="item-label">固定电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="tel" value="{$info.tel}">
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">移动电话号码<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="mobile" value="{$info.mobile}">
+            </div>
+        </div>
+
+
+        <div class="form-item cf">
+            <label class="item-label">运营所在地址<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="address" value="{$info.address}">
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">运营类型<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="operations_type" value="{$info.operations_type}">
+            </div>
+        </div>
+        
+       
+        
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Member/ordlist')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+    </script>
+
+</block>

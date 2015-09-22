@@ -1,0 +1,75 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>房源列表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('ProList/rmadd')}">新 增</a>
+            <button class="btn ajax-post" url="{:U('ProList/rm_changeStatus',array('method'=>'resumeUser'))}" target-form="ids">上 架</button>
+            <button class="btn ajax-post" url="{:U('ProList/rm_changeStatus',array('method'=>'forbidUser'))}" target-form="ids">下 架</button>
+            <button class="btn ajax-post confirm" url="{:U('ProList/rm_changeStatus',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div>
+
+        
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class=""></th>
+		<th class="">房源名称</th>
+		<th class="">每天价(￥)</th>
+		<th class="">押金(￥)</th>
+		<th class="">业主名</th>
+		<th class="">业主电话</th>
+		<th class="">上传者</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <td height="100px"><img src="{$vo.logo_img_url}" width='100px';height='100px'></td>
+			<td>{$vo.hel_name} </td>
+			<td>{$vo.day_price}</td>
+			<td>{$vo.deposit}</td>
+			<td>{$vo.name}</td>
+			<td>{$vo.hel_tel}</td>
+			<td>{$vo.nickname}</td>
+			<td>{$vo.status_text}</td>
+			<td>
+				<a href="{:U('ProList/rmedit?id='.$vo['id'])}" target="_blank">编辑</a>
+				<if condition="$vo['status'] eq '0'">
+					<a href="{:U('ProList/rm_changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">上架</a>
+				<elseif condition="$vo['status'] eq '1'" />
+					<a href="{:U('ProList/rm_changeStatus?method=forbidUser&id='.$vo['id'])}" class="ajax-get">下架</a>
+				</if>
+				<a href="{:U('ProList/rm_changeStatus?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+				<!-- <a href="{:U('Vip/delete?id='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+                </td>
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('ProList/rmlist')}"]').closest('li').addClass('current');
+	</script>
+</block>

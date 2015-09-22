@@ -1,0 +1,185 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>线路列表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('Product/readd')}">新 增</a>
+            <button class="btn ajax-post" url="{:U('Product/re_changeStatus',array('method'=>'resumeUser'))}" target-form="ids">上 架</button>
+            <button class="btn ajax-post" url="{:U('Product/re_changeStatus',array('method'=>'forbidUser'))}" target-form="ids">下 架</button>
+            <button class="btn ajax-post confirm" url="{:U('Product/re_changeStatus',array('method'=>'resumeUser'))}" target-form="ids">通 过</button>
+            <button class="btn ajax-post confirm" url="{:U('Product/re_changeStatus',array('method'=>'falsestatus'))}" target-form="ids">不 通 过</button>
+            <button class="btn" url="" onclick="setDivCenter('0','#model')" target-form="ids">发送通知</button>
+            <button class="btn ajax-post confirm" url="{:U('Product/re_changeStatus',array('method'=>'deleteUser'))}" target-form="ids">删 除</button>
+        </div>
+
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+			<div class="sleft">
+				<div class="drop-down">
+					<span id="sch-sort-txt" class="sort-txt" data="{$status}"><if condition="get_status_title($_GET['status']) eq ''">所有<else/>{:get_status_title($_GET['status'])}</if></span>
+					<i class="arrow arrow-down"></i>
+					<ul id="sub-sch-menu" class="nav-list hidden">
+						<li><a href="javascript:;" value="">所有</a></li>
+						<li><a href="javascript:;" value="1">已上架</a></li>
+						<li><a href="javascript:;" value="0">已下架</a></li>
+						<li><a href="javascript:;" value="3">待通过</a></li>
+						<li><a href="javascript:;" value="4">不通过</a></li>
+					</ul>
+				</div>
+				<input type="text" name="title" class="search-input" value="{:I('title')}" placeholder="请输入餐饮名称">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('product/relist',false)}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+
+        
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class=""></th>
+		<th class="">线路名称</th>
+		<th class="">游玩时间</th>
+		<th class="">组团人数</th>
+		<th class="">价格/人(￥)</th>
+		<th class="">联系人</th>
+		<th class="">联系电话</th>
+		<th class="">建立时间</th>
+		<th class="">上传者</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" uid="{$vo.uid}" value="{$vo.id}" /></td>
+            <php>$img_url = getImgUrl($vo['logo_img_url']);</php>
+            <td height="100px"><img src="{:($img_url)?$img_url[0]['url']:''}" width='100px';height='100px'></td>
+			<td>{:str_cut($vo['title'],20)}</td>
+			<td>{$vo.day|default=''}天{$vo.night|default=''}夜</td>
+			<td>{$vo.team_number}</td>
+			<td>{:(ceil($vo['favorable_price']) == 0)?$vo['price']:$vo['favorable_price'].'<br /><span style="color:darkgray;"><s>'.$vo['price'].'</s></span>'}</td>
+			<td>{$vo.chief}</td>
+			<td>{$vo.tel}</td>
+			<td>{:time_format($vo.insert_time)}</td>
+			<td>{:($vo['nickname'] == '')?$vo['realname']:$vo['nickname']}</td>
+			<td>{$vo.status_text}</td>
+			<td>
+				<a href="{:U('Product/reedit?id='.$vo['id'].'&type='.$vo['type'])}" target="_blank">路线</a>
+				<a href="{:U('Product/re_pro_edit?id='.$vo['id'].'&night='.$vo['night'].'&day='.$vo['day'])}" target="_blank">活动</a>
+				<if condition="$vo['status'] eq '0'">
+					<a href="{:U('Product/re_changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">上架</a>
+				<elseif condition="$vo['status'] eq '1'" />
+					<a href="{:U('Product/re_changeStatus?method=forbidUser&id='.$vo['id'])}" class="ajax-get">下架</a>
+				<elseif condition="$vo['status'] eq '3'" />
+					<a href="{:U('Product/re_changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">通过</a>
+
+					<a href="{:U('Product/re_changeStatus?method=falsestatus&id='.$vo['id'])}" class="ajax-get">不通过</a>
+				<elseif condition="$vo['status'] eq '4'" />
+					<a href="{:U('Product/re_changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">通过</a>
+
+				</if>
+				<a href="javascript:;" onclick="setDivCenter({:$vo['uid']},'#model')">发送通知</a>
+				<a href="{:U('Product/re_changeStatus?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+				<!-- <a href="{:U('Vip/delete?id='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+                </td>
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+    <div style="text-align:center;">
+        {$_page}
+    </div>
+
+    <!-- 发送信息窗口 -->
+    <div>  
+	    <div id="model" class="model">  
+	        <span class="tan" onclick="setDivHidden('#model')">X</span>
+	        <div class="cento">
+	        	<form action="{:U('sendMessgae')}" method="post" class="form-horizontal" enctype="multipart/form-data">
+					<div class="form-item cf">
+			            <label class="item-label">发送理由<span class="check-tips"></span></label>
+			            <div class="controls">
+			                <label class="textarea input-large">
+			                    <textarea class="message_text" name="message_text"></textarea>
+			                </label>
+			            </div>
+			        </div>
+
+
+			        <div class="form-item cf">
+			            <label class="item-label">发送类型<span class="check-tips"></span></label>
+			            <div class="controls">
+			                <div class="radio">
+			                  <label>
+			                    <input type="radio" name="type" id="type" value="1" >
+			                    &nbsp;短 信
+			                  </label>&nbsp;&nbsp;
+			                  <label>
+			                    <input type="radio" name="type" id="type" value="2" checked>
+			                    &nbsp;邮 箱
+			                  </label>&nbsp;&nbsp;
+			                </div>
+			            </div>
+			        </div>
+					
+					<div class="form-item">
+						<input type="hidden" name="uid" class="uid" value="" />
+			            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">发 送</button>
+			            
+			        </div>
+
+	        	</form>
+	        </div>  
+	    </div>  
+	</div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+		var status = $("#sch-sort-txt").attr("data");
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+		if(status != ''){
+			query += 'status=' + status + "&" + query;
+        }
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+
+	/* 状态搜索子菜单 */
+	$(".search-form").find(".drop-down").hover(function(){
+		$("#sub-sch-menu").removeClass("hidden");
+	},function(){
+		$("#sub-sch-menu").addClass("hidden");
+	});
+	$("#sub-sch-menu li").find("a").each(function(){
+		$(this).click(function(){
+			var text = $(this).text();
+			$("#sch-sort-txt").text(text).attr("data",$(this).attr("value"));
+			$("#sub-sch-menu").addClass("hidden");
+		})
+	});
+	
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('product/relist')}"]').closest('li').addClass('current');
+	</script>
+</block>

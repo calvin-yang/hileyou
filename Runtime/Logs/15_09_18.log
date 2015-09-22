@@ -1,0 +1,390 @@
+[ 2015-09-18T09:14:24+08:00 ] 127.0.0.1 /index.php?s=/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.038002s ]
+SQL: SELECT * FROM `tv_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.013001s ]
+SQL: UPDATE `tv_ucenter_member` SET `last_login_time`=1442538862,`last_login_ip`='2130706433' WHERE ( `id` = 1 ) [ RunTime:0.011000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.017600s ]
+SQL: SELECT `uid`,`face_max_url`,`face_min_url`,`hobby_id`,`realname`,`IDcard`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`update_time`,`type`,`vip_id`,`imei`,`mobile_model` FROM `tv_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.015600s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `tv_member` SET `login`=`login`+1,`last_login_time`=1442538862,`last_login_ip`='2130706433' WHERE ( `uid` = 1 ) [ RunTime:0.017600s ]
+
+[ 2015-09-18T09:25:36+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=1&type=1
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=1 and region_type=1 )  [ RunTime:0.009001s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-18T09:25:36+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=77&type=3
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=77 and region_type=3 )  [ RunTime:0.035002s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-18T09:25:38+08:00 ] 127.0.0.1 /index.php?s=/region/action.html&parent_id=6&type=2
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_global_region` [ RunTime:0.012001s ]
+SQL: SELECT * FROM `tv_global_region` WHERE ( parent_id=6 and region_type=2 )  [ RunTime:0.010001s ]
+INFO: [ app_end ] --START--
+INFO: Run Think\Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-18T09:25:42+08:00 ] 127.0.0.1 /index.php?s=/product/imguplode/type/eat.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined property: ORG\Util\ImgUpload::$toFile C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 125 行.
+NOTIC: [8] Undefined offset: 1 C:\wamp\www\tourism\Application\ORG\Util\ImgUpload.class.php 第 181 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_img` [ RunTime:0.011001s ]
+SQL: INSERT INTO `tv_img` (`url`,`insert_time`) VALUES ('./Uploads/eat/1442539541.jpg',1442539542) [ RunTime:0.017001s ]
+
+[ 2015-09-18T09:51:57+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/18.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+NOTIC: [2] mysql_connect():  C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+ERR: �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2015-09-18T09:51:58+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/18.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.014001s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('18') ) [ RunTime:0.082005s ]
+
+[ 2015-09-18T09:52:03+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/18.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.016001s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('18') ) [ RunTime:0.026002s ]
+
+[ 2015-09-18T09:52:08+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/15.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.022001s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('15') ) [ RunTime:0.025001s ]
+
+[ 2015-09-18T09:52:22+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:1.101063s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('18','15','14','13','9','10','11','12') ) [ RunTime:1.301074s ]
+
+[ 2015-09-18T09:52:32+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/18.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.025002s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('18') )  [ RunTime:0.010001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.041002s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 18 ) GROUP BY day  [ RunTime:0.011001s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.013000s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('18') ) [ RunTime:0.015001s ]
+
+[ 2015-09-18T09:52:54+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/15.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.015000s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('15') )  [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.009000s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 15 ) GROUP BY day  [ RunTime:0.035002s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.013001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('15') ) [ RunTime:0.015001s ]
+
+[ 2015-09-18T09:53:04+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/14.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.021001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('14') )  [ RunTime:0.011000s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.016001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 14 ) GROUP BY day  [ RunTime:0.011001s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.012001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('14') ) [ RunTime:0.021001s ]
+
+[ 2015-09-18T09:53:14+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/13.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.012001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('13') )  [ RunTime:0.081005s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.010000s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 13 ) GROUP BY day  [ RunTime:0.011001s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.011000s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('13') ) [ RunTime:0.024001s ]
+
+[ 2015-09-18T09:53:32+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/9.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.017001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('9') )  [ RunTime:0.027001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.014001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 9 ) GROUP BY day  [ RunTime:0.014001s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.019001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('9') ) [ RunTime:0.028002s ]
+
+[ 2015-09-18T09:53:53+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/10.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.013001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('10') )  [ RunTime:0.011001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.013001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 10 ) GROUP BY day  [ RunTime:0.013000s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.016001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('10') ) [ RunTime:0.023002s ]
+
+[ 2015-09-18T09:54:08+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.016001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('11') )  [ RunTime:0.012001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.010000s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 11 ) GROUP BY day  [ RunTime:0.016001s ]
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.014001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('11') ) [ RunTime:0.024001s ]
+
+[ 2015-09-18T09:54:19+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/12.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.010001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('12') )  [ RunTime:0.013001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.010000s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 12 ) GROUP BY day  [ RunTime:0.013001s ]
+NOTIC: [8] Undefined index: num C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.017001s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('12') ) [ RunTime:0.030002s ]
+
+[ 2015-09-18T10:02:19+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.020001s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('11') ) [ RunTime:0.022001s ]
+
+[ 2015-09-18T10:03:18+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.026001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('11') )  [ RunTime:0.021001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.017001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 11 ) GROUP BY day  [ RunTime:0.019001s ]
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+
+[ 2015-09-18T10:03:55+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.012001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('11') )  [ RunTime:0.013001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.010001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 11 ) GROUP BY day  [ RunTime:0.013000s ]
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 914 行.
+NOTIC: [8] Undefined index: night C:\wamp\www\tourism\Application\Admin\Controller\ProductController.class.php 第 917 行.
+
+[ 2015-09-18T10:04:19+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.011000s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('11') )  [ RunTime:0.027002s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.011001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 11 ) GROUP BY day  [ RunTime:0.009000s ]
+
+[ 2015-09-18T10:04:23+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/forbidUser/id/10.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.112006s ]
+SQL: UPDATE `tv_route` SET `status`=0 WHERE ( `id` IN ('10') ) [ RunTime:0.030002s ]
+
+[ 2015-09-18T10:04:28+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.013001s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('11') )  [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.011000s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 11 ) GROUP BY day  [ RunTime:0.007001s ]
+
+[ 2015-09-18T10:04:30+08:00 ] 127.0.0.1 /index.php?s=/product/re_changestatus/method/resumeUser/id/10.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.010000s ]
+SQL: SELECT `id`,`night` FROM `tv_route` WHERE ( `id` IN ('10') )  [ RunTime:0.012001s ]
+SQL: SHOW COLUMNS FROM `tv_route_details` [ RunTime:0.013001s ]
+SQL: SELECT count(id) num FROM `tv_route_details` WHERE ( route_id = 10 ) GROUP BY day  [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `tv_route` [ RunTime:0.007000s ]
+SQL: UPDATE `tv_route` SET `status`=1 WHERE ( `id` IN ('10') ) [ RunTime:0.026002s ]
+
+[ 2015-09-18T14:42:25+08:00 ] 127.0.0.1 /index.php?s=/order/ord_changestatus/method/finish/id/10.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_order` [ RunTime:0.022001s ]
+SQL: SELECT * FROM `tv_order` WHERE ( `id` IN ('10') ) AND ( `status` = 7 )  [ RunTime:0.015001s ]
+
+[ 2015-09-18T14:42:29+08:00 ] 127.0.0.1 /index.php?s=/order/ord_changestatus/method/finish/id/10.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_order` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `tv_order` WHERE ( `id` IN ('10') ) AND ( `status` = 7 )  [ RunTime:0.016001s ]
+
+[ 2015-09-18T14:44:07+08:00 ] 127.0.0.1 /index.php?s=/order/ord_changestatus/method/finish/id/23.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_order` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `tv_order` WHERE ( `id` IN ('23') ) AND ( `status` = 7 )  [ RunTime:0.015001s ]
+SQL: UPDATE `tv_order` SET `status`=4 WHERE ( `id` IN ('23') ) AND ( `status` = 7 ) [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `tv_pro_order` [ RunTime:0.017001s ]
+SQL: SELECT a.pro_id,a.uid,a.pro_type,a.discount_price,a.voucher_number,a.voucher_price,b.number order_number FROM tv_pro_order a INNER JOIN tv_order b on a.id = b.pro_order_id WHERE ( b.id = '23' ) LIMIT 1   [ RunTime:0.013001s ]
+SQL: SHOW COLUMNS FROM `tv_hel` [ RunTime:0.015001s ]
+SQL: SELECT `uid` FROM `tv_hel` WHERE ( id = 4 ) LIMIT 1   [ RunTime:0.009001s ]
+SQL: SHOW COLUMNS FROM `tv_financial` [ RunTime:0.010000s ]
+SQL: SELECT `price` FROM `tv_financial` WHERE ( uid = 1 ) LIMIT 1   [ RunTime:0.005001s ]
+SQL: INSERT INTO `tv_financial` (`price`,`uid`,`last_time`,`last_price`) VALUES ('99.00',1,1442558647,'99.00') [ RunTime:0.016001s ]
+SQL: SHOW COLUMNS FROM `tv_finance_log` [ RunTime:0.016000s ]
+SQL: INSERT INTO `tv_finance_log` (`uid`,`order_id`,`price`,`type`,`insert_time`,`content`) VALUES (1,23,'99.00',1,1442558647,'订单(502015091718205)已完成，用户ID为50给商家用户ID为1支付金额￥99.00') [ RunTime:0.012001s ]
+
+[ 2015-09-18T17:28:30+08:00 ] 127.0.0.1 /index.php?s=/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_ucenter_member` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `tv_ucenter_member` WHERE ( `mobile` = '13049340998' ) LIMIT 1   [ RunTime:0.009000s ]
+SQL: UPDATE `tv_ucenter_member` SET `last_login_time`=1442568504,`last_login_ip`='2130706433' WHERE ( `id` = 44 ) [ RunTime:0.007001s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\tourism\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `tv_member` [ RunTime:0.010000s ]
+SQL: SELECT `uid`,`face_max_url`,`face_min_url`,`hobby_id`,`realname`,`IDcard`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`update_time`,`type`,`vip_id`,`imei`,`mobile_model` FROM `tv_member` WHERE ( `uid` = 44 ) LIMIT 1   [ RunTime:0.010001s ]
+SQL: SHOW COLUMNS FROM `tv_facilitator_data` [ RunTime:0.007000s ]
+SQL: SELECT `id` FROM `tv_facilitator_data` WHERE ( status = 1 and uid = 44 ) LIMIT 1   [ RunTime:0.028002s ]
+SQL: SHOW COLUMNS FROM `tv_action` [ RunTime:0.012001s ]
+SQL: SELECT * FROM `tv_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.008000s ]
+SQL: UPDATE `tv_member` SET `login`=`login`+1,`last_login_time`=1442568504,`last_login_ip`='2130706433' WHERE ( `uid` = 44 ) [ RunTime:0.010001s ]
+

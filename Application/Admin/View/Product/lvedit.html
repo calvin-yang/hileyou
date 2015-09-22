@@ -1,0 +1,83 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>编辑产品类型</h2>
+    </div>
+    <php>
+        $product_type = C('PRODUC_TYPE');
+        $room_type = C('ROOM_TYPE');
+        $foot_type = C('FOOT_TYPE');
+        $play_type = C('PLAY_TYPE');
+    </php>
+    <form action="__SELF__" method="post" class="form-horizontal">
+        <div class="form-item cf">
+            <label class="item-label">产品<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " readonly="readonly" value="{:$product_type[$info['facilities_type']]}">
+            </div>
+        </div>
+
+        <div class="form-item cf pz1">
+            <label class="item-label">品种<span class="check-tips"></span></label>
+            <div class="controls">
+                <eq name="info['facilities_type']" value="1">
+                    <input type="text" class="text input-large " readonly="readonly" value="{:$room_type[$info['type']]}">
+                </eq>
+                <eq name="info['facilities_type']" value="2">
+                    <input type="text" class="text input-large " readonly="readonly" value="{:$foot_type[$info['type']]}">
+                </eq>
+                <eq name="info['facilities_type']" value="3">
+                    <input type="text" class="text input-large " readonly="readonly" value="{:$play_type[$info['type']]}">
+                </eq>
+                
+            </div>
+        </div>
+        
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">标配<span class="check-tips">(请用英文逗号,分隔开)</span></label>
+            <div class="controls">
+                <textarea class="textarea" name="name" rows="3" cols="40">{$info['name']}</textarea>
+            </div>
+        </div>
+        
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <input type="hidden" name="facilities_type" value="{$info['facilities_type']}">
+            <input type="hidden" name="type" value="{$info['type']}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Product/lvlist')}"]').closest('li').addClass('current');
+
+        $("document").ready(function(){
+            var facilities_type = "{:$info['facilities_type']}";
+            var type = "{:$info['type']}";
+            if(type != '0'){
+                $("#type").val(type);
+            }else{
+                $(".pz1").remove();
+            }
+            $("#facilities_type").val(facilities_type);
+
+            
+        });
+    </script>
+
+</block>

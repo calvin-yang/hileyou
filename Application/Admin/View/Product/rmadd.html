@@ -1,0 +1,406 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>{$info['id']?'编辑':'新增'}房源</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">房源封面图<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                             <span class="img_up"><input type="file" name="img" upUrl="{:U('Product/imgUplode')}" at="logo_img_url" onchange="img_upload(this,'1');"></span>
+                            <input id="logo_img_url" type="hidden" name="logo_img_url" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">房源图<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">上传图片</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('Product/imgUplode')}" at="hel_img_url" dele="" onchange="img_upload(this,'2');"></span>
+                            <input id="hel_img_url" type="hidden" name="hel_img_url" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                        <!-- <div id="showimg"></div> -->
+
+                   </div>
+                   <div class="col-md-12 column" id="showimg"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="form-item cf">
+            <label class="item-label">房源标题<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="title" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">房源名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="hel_name" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">业主名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="name" value="">
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">业主电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="hel_tel" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">居住人数<span class="check-tips">(0-4)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="max_man" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">房源类型<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="type" name="type">
+                <!-- <select name="mobile"> -->
+                    <volist name="room_type_list['name']" id="vo">
+                        <option value="{$vo}">{$vo}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">床型<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="bed_type" name="bed_type">
+                <!-- <select name="mobile"> -->
+                    <volist name="bed_list['name']" id="vo">
+                        <option value="{$vo}">{$vo}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">房间设施<span class="check-tips"></span></label>
+            <div class="">
+                <select  id="facilitie" name="facilitie" class="chzn-select" multiple style="width:350px;"tabindex="6">
+                <!-- <select style="width: 300px" class="chzn-select" id="facilities" name="facilities"> -->
+                <!-- <select name="mobile"> -->
+                    <volist name="facilities_list['name']" id="vo">
+                        <option value="{$vo}">{$vo}</option>
+                    </volist>
+                </select>
+                <input type="hidden" name="facilities" id="facilities" value="" />
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">卧室<span class="check-tips">(几卧)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="bedroom" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">卫生间<span class="check-tips">(几间)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="toilet" value="1">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">床位<span class="check-tips">(几位)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="bed" value="1">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">省份<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="provinces" name="provinces">
+                        <option value="">--请选择--</option>
+                </select>
+            </div>
+        </div>
+        <!-- 市 -->
+        <div class="form-item cf city"></div>
+        <!-- 区 -->
+        <div class="form-item cf county"></div>
+
+        <div class="form-item cf">
+            <label class="item-label">房屋详细地址<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large " name="address" value="">
+            </div>
+        </div>
+        
+        
+        <div class="form-item cf">
+            <label class="item-label">附近交通<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="nearby_traffic"></textarea>
+                </label>
+            </div>
+        </div>
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)每天价<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="number" class="text input-large price" name="day_price" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)优惠价<span class="check-tips">(0：无优惠价)</span>
+                <input type="number" class="text input-large " name="zhekou" value="0"  style="width:50px;" oninput="OnInput (this,event)" onpropertychange="OnPropChanged (this,event)">%
+            </label>
+            <div class="controls">
+                <input type="number" class="text input-large favorable_price" name="favorable_price" value="0">
+            </div>
+        </div>
+
+        <!-- vip价 start -->
+        <volist name="vip_list" id="vo">
+            <div class="form-item cf">
+                <label class="item-label">(%折){$vo.name}价<span class="check-tips">(0：无vip价)</span></label>
+                <div class="controls">
+                    <input type="number" class="text input-large " name="vip[]" value="{:$vo['discount']}">
+                    <input type="hidden" class="text input-large " name="vip_id[]"  value="{$vo.id}">
+                </div>
+            </div>
+        </volist>
+        <!-- vip价 end-->
+
+        <div class="form-item cf">
+            <label class="item-label">(￥)押金<span class="check-tips">(0：无需押金)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="deposit" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">排序<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="number" class="text input-large " name="sort" value="0">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">每天入住时间<span class="check-tips">00:00</span></label>
+            <div class="controls">
+                <input type="time" class="text input-large " name="check_in" value="00:00">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">每天退房时间<span class="check-tips">12:00</span></label>
+            <div class="controls">
+                <input type="time" class="text input-large " name="check_out" value="12:00">
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">房间状态<span class="check-tips">(有房/无房)</span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="tel_status" id="type" value="0">
+                    &nbsp;无房
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="tel_status" id="type" value="1" checked>
+                    &nbsp;有房
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">启用房间<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status" value="0">
+                    &nbsp;下架
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="1" checked>
+                    &nbsp;上架
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="3">
+                    &nbsp;待通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="4">
+                    &nbsp;不通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">房源评级<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="star" value="1" checked>
+                    &nbsp;一星
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="star" value="2" >
+                    &nbsp;二星
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="star" value="3" >
+                    &nbsp;三星
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="star" value="4" >
+                    &nbsp;四星
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="star" value="5" >
+                    &nbsp;五星
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+    $("document").ready(function(){
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type=1表示查询省份
+                data: {"parent_id": "1", "type": "1"},
+                dataType: "json",
+                success: function(data) {
+                    $.each(data, function(i, item) {
+                        $("#provinces").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#provinces").chosen({disable_search_threshold: 5});
+                }
+            });
+        });
+
+        $("#submit").click(function(){
+            $("#facilities").val($("#facilitie").val());
+        });
+
+        $("#provinces").change(function() {
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type =2表示查询市
+                data: {"parent_id": $(this).val(), "type": "2"},
+                dataType: "json",
+                success: function(data) {
+                    $(".city").html('<label class="item-label">市区<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="citys" name="citys" onchange="citys_change(this);"><option value="">--请选择--</option></select></div>');
+                    $.each(data, function(i, item) {
+                        $("#citys").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#citys").chosen({disable_search_threshold: 5});
+                }
+            });
+        });
+
+        function citys_change(_this){
+            $.ajax({
+                type: "get",
+                url: "{:U('Region/action')}", // type =2表示查询市
+                data: {"parent_id": $(_this).val(), "type": "3"},
+                dataType: "json",
+                success: function(data) {
+                    $(".county").html('<label class="item-label">县区<span class="check-tips"></span></label><div class=""><select style="width: 300px" class="chzn-select" id="countys" name="countys"><option value="">--请选择--</option></select></div>');
+                    $.each(data, function(i, item) {
+                        $("#countys").append("<option value='" + item.region_id + "'>" + item.region_name + "</option>");
+                    });
+                    jQuery("#countys").chosen({disable_search_threshold: 5});
+                }
+            });
+        }
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('Product/rmlist')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        jQuery("#facilitie").chosen({disable_search_threshold: 5});
+        jQuery("#type").chosen({disable_search_threshold: 5});
+        jQuery("#bed_type").chosen({disable_search_threshold: 5});
+        
+    </script>
+
+    <script type="text/javascript">
+    // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput (_this,event) {
+            var price = $(".price").val();
+
+            if(price != ""){
+                var favorable_price = price * ($(_this).val()/100);
+                $('.favorable_price').val(favorable_price);
+            }
+        }
+    // Internet Explorer
+        function OnPropChanged (_this,event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                var price = $(".price").val();
+                if($price != ""){
+                    var favorable_price = price * $(_this).val();
+                    $('favorable_price').val(favorable_price);
+                }
+            }
+        }
+    </script>
+
+</block>

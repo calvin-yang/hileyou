@@ -1,0 +1,101 @@
+<extend name="Public/base"/>
+
+<block name="style">
+
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>编辑VIP用户</h2>
+    </div>
+    
+    <form action="__SELF__" method="post" class="form-horizontal">
+        <div class="form-item cf">
+            <label class="item-label">用户<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="hidden" class="text input-large" name="uid" value="{$info.uid}">
+                <input type="text" class="text input-large" name="uname" readonly="readonly" value="{$memberList.mobile}">
+                
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">VIP名称<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="vip_id" name="vip_id">
+                <!-- <select name="vip_id"> -->
+                    <volist name="VIPList" id="vo">
+                        <option value="{$vo.id}">{$vo.name}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">有效时间<span class="check-tips">(天)</span></label>
+            <div class="controls">
+                <input type="number" class="text input-large dates" name="date" value="1" oninput="OnInput (event)" onpropertychange="OnPropChanged (event)" value="{$info.date}" />
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">开始时间<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large start_date" name="start_date" readonly="readonly" value="{$info.start_date}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">结束时间<span class="check-tips">(天)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large end_date" name="end_date" readonly="readonly" value="{$info.end_date}">
+            </div>
+        </div>
+        
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('vip/user')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        $("#vip_id").val("{:$info['vip_id']}");
+        jQuery("#vip_id").chosen();
+
+        $("document").ready(function(){
+            // 获取当前时间
+            nowtime = new Date();
+
+        });
+    </script>
+    <script type="text/javascript">
+    // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput (event) {
+            var date = $(".dates").val();
+            if(date != ""){
+                nowtime.setTime(nowtime.getTime() + date*24*60*60*1000);
+                $(".end_date").val(nowtime.getFullYear()+"-" + (nowtime.getMonth()+1) + "-" + nowtime.getDate());
+            }
+            //alert ("The new content: " + event.target.value);
+        }
+    // Internet Explorer
+        function OnPropChanged (event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                var date = $(".dates").val();
+                if(date != ""){
+                    nowtime.setTime(nowtime.getTime() + date*24*60*60*1000);
+                    $(".end_date").val(nowtime.getFullYear()+"-" + (nowtime.getMonth()+1) + "-" + nowtime.getDate());
+                }
+                //alert ("The new content: " + event.srcElement.value);
+            }
+        }
+    </script>
+</block>

@@ -1,0 +1,203 @@
+<extend name="Public/base"/>
+
+<block name="style">
+</block>
+
+<block name="body">
+
+    <div class="main-title">
+        <h2>编辑服务商用户</h2>
+    </div>
+    <!-- <form action="__SELF__" method="post" class="form-horizontal" enctype="multipart/from-data"> -->
+    <form action="__SELF__" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+        <div class="form-item cf">
+            <label class="item-label">个人/企业<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="type" id="type" value="0" <eq name='info["type"]' value='0'>checked</eq> >
+                    &nbsp;个人
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="type" id="type" value="1" <eq name='info["type"]' value='1'>checked</eq> >
+                    &nbsp;企业
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">用户<span class="check-tips"></span></label>
+            <div class="">
+                <select style="width: 300px" class="chzn-select" id="mobile" name="uid">
+                <!-- <select name="mobile"> -->
+                    <volist name="memberList" id="vo">
+                        <option value="{$vo.id}">{$vo.mobile}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <label class="item-label">真实姓名<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="realname" value="{$info.realname}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">身份证号码<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="IDcard" value="{$info.IDcard}">
+                
+            </div>
+        </div>
+
+        
+        <div class="form-item cf">
+            <label class="item-label">工商注册号码<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="business_licence" value="{$info.business_licence}">
+            </div>
+        </div>
+        
+
+
+        <div class="form-item cf">
+            <label class="item-label">公司电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="tel" value="{$info.tel}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">运营所在地址<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="address" value="{$info.address}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">公司运营类型<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="operations_type" value="{$info.operations_type}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">身份证正面<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">重新上传</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('facilitator/imgUplode')}" at="id_card_positive" onchange="img_upload(this,1);"></span>
+                            <input id="id_card_positive" type="hidden" name="id_card_positive" value="{$info.id_card_positive}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"><div style='float: left;margin-left: 5px;'><img src="{$info.id_card_positive}" width='220px' height = '111px'></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">身份证反面<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">重新上传</span>
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('facilitator/imgUplode')}" at="id_card_opposite" onchange="img_upload(this,1);"></span >
+                            <input id="id_card_opposite" type="hidden" name="id_card_opposite" value="{$info.id_card_opposite}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"><div style='float: left;margin-left: 5px;'><img src="{$info.id_card_opposite}" width='220px' height = '111px'></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">营业执照<span class="check-tips"></span></label>
+            <div class="controls">
+                <div id="main">
+                   <div class="demo">
+                        <div class="btn">
+                            <span class="up_str">重新上传</span> 
+                            <span class="img_up"><input type="file" name="img" upUrl="{:U('facilitator/imgUplode')}" at="business_licence_positive" onchange="img_upload(this,1);"></span >
+                            <input id="business_licence_positive" type="hidden" name="business_licence_url" value="{$info.business_licence_url}" />
+                        </div>
+                        <div class="progress">
+                            <span class="bar"></span><span class="percent">0%</span >
+                        </div>
+                        <div class="files"></div>
+                   </div>
+                   <div class="col-md-12 column" id="showimg"><div style='float: left;margin-left: 5px;'><img src="{$info.business_licence_url}" width='220px' height = '111px'></div></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-item cf">
+            <label class="item-label">状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status" value="0" <eq name="info['status']" value="0">checked</eq>>
+                    &nbsp;禁用
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="1" <eq name="info['status']" value="1">checked</eq> >
+                    &nbsp;通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="3" <eq name="info['status']" value="3">checked</eq>>
+                    &nbsp;待通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input type="radio" name="status" id="status" value="4" <eq name="info['status']" value="4">checked</eq>>
+                    &nbsp;不通过
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">修 改</button>
+            <!-- <button class="btn submit-btn" id="submit" type="submit" target-form="form-horizontal">确 定</button> -->
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+
+
+            
+</block>
+
+
+<block name="script">
+
+    <script type="text/javascript">
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('facilitator/index')}"]').closest('li').addClass('current');
+        // 然后在select元素上启用chose
+        $("#mobile").val("{$info['id']}");
+        jQuery("#mobile").chosen();
+
+    </script>
+    
+</block>
