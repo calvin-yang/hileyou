@@ -19,27 +19,22 @@ class UcenterController extends HomeController
 		$config = api('Config/lists');
 		C($config); //添加配置
         /* 判断是否登录 */
-     	is_login() || $this->ajaxReturn(array('msg' => '您还没有登录，请先登录！','status' => false));
-
+     //is_login() || $this->ajaxReturn(array('msg' => '您还没有登录，请先登录！','status' => false));
     }
     
     /**
      * 用户中心--首页
      */
 	public function UserCenter(){
-
 		if(!IS_POST){
 			$this->error('操作非法');
 		}
 		$uid=is_login();
-
 		if(!$uid){
 			$this->ajaxReturn(array('msg'=>'请重新登陆','status'=>false));
 		}
 		$model=M('UcenterMember');
-
 		$sql="SELECT a.mobile,a.last_login_time,d.id as vip,COUNT(DISTINCT(b.id)) AS comment,COUNT(DISTINCT(c.id)) AS upvote FROM tv_ucenter_member a LEFT JOIN tv_comment b ON a.id=b.uid LEFT JOIN tv_upvote c ON a.id=c.uid left join tv_member_vip d on a.id=d.uid where a.id={$uid} limit 1";
-
 		$result=$model->query($sql);
 		if(!$result){
 			$this->ajaxReturn(array('msg'=>'您访问的页面超时了','status'=>false));
@@ -63,7 +58,6 @@ class UcenterController extends HomeController
 		}
 		$uid=is_login();
 		$type=I('request.type');
-
 		if(!$uid){
 			$this->ajaxReturn(array('msg'=>'请重新登陆','status'=>false));
 		}
@@ -162,7 +156,6 @@ class UcenterController extends HomeController
 		}
 		$uid=is_login();
 		$type=I('request.type');
-
 		if(!$uid){
 			$this->ajaxReturn(array('msg'=>'请重新登陆','status'=>false));
 		}
@@ -256,7 +249,6 @@ class UcenterController extends HomeController
 		}
 		$model=M('Message');
 		$uid=is_login();
-
 		//先排序，后分组
 		$sql="select a.read_flag,a.sender_id,b.id,c.mobile,a.send_time,b.message_text from tv_message a inner join tv_message_text b on a.message_text_id=b.id inner join tv_ucenter_member c on a.sender_id=c.id where a.receiver_id={$uid} and b.type=1 order by a.send_time desc";
 		//分组每个用户发的消息
@@ -284,7 +276,6 @@ class UcenterController extends HomeController
 		}
 		$model=M('Message');
 		$uid=is_login();
-
 		//系统消息列表
 		$result=$model->field('a.id,a.read_flag,a.send_time,b.message_text')->alias('a')->join('tv_message_text b on a.message_text_id=b.id')->where('b.type=2 and a.receiver_id='.$uid)->select();
 		//私信未读消息
@@ -302,7 +293,7 @@ class UcenterController extends HomeController
 	 * @return [type] [description]
 	 */
 	public function voucher(){
-		$uid = is_login();
+		$uid = UID;
 		$status = I('get.status');//(状态(1:未使用,2:已使用,3:已过期))
 		$map['a.uid'] = array('eq',$uid);
 		switch ($status) {
@@ -336,9 +327,7 @@ class UcenterController extends HomeController
 	 * @return [type] [description]
 	 */
 	public function facilitator(){
-
-		$uid = is_login();
-
+		$uid = UID;
 		if(IS_POST){
 			/**
 			 * type 服务商类型
@@ -389,7 +378,6 @@ class UcenterController extends HomeController
 	 * @return [type] [description]
 	 */
 	public function myorder(){
-
 		if(I('request.type')){
 			switch (I('request.type')) {
 				case '1':
@@ -470,13 +458,18 @@ class UcenterController extends HomeController
 		$uid = 44;//UID;
 		$map['b.status'] = array('in','5,6');
 		$map['a.uid'] = array('eq',$uid);
-		$list = $model->alias('a')->field('a.id,a.unit_price,a.pro_img,a.pro_name,a.number,a.discount_price,a.total_price,b.number order_number,b.title,b.status')->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id')->where($map)->select();
+		#检测缓存
+		if(S('order_refund_list')){
+			$list = S('order_list');
+		}else{
+			$list = $model->alias('a')->field('a.id,a.unit_price,a.pro_img,a.pro_name,a.number,a.discount_price,a.total_price,b.number order_number,b.title,b.status')->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id')->where($map)->select();
 
-		if(!$list)
-			$this->ajaxReturn(array('msg' => '暂无订单数据','status' => false));
-		order_int_to_string($list);
-		getImg($list,array('pro_img'));
-
+			if(!$list)
+				$this->ajaxReturn(array('msg' => '暂无订单数据','status' => false));
+			order_int_to_string($list);
+			getImg($list,array('pro_img'));
+			S('order_refund_list',$list,30);
+		}
 		#制作分页
 		if(I('request.page') != ""){
             $page = I('request.page'); //第几页
@@ -504,9 +497,7 @@ class UcenterController extends HomeController
         $list = $lists;
 		$data['list'] = $list;
 		$this->ajaxReturn(array('msg' => '200 ok','data' => $data,'status' => true));
-
 	}
-
 
 	/**
 	 * 订单详情
@@ -521,13 +512,11 @@ class UcenterController extends HomeController
 		$pro_type = I('request.protype');
 		$map['a.id'] = array('eq',$id);
 		$map['b.status'] = array('not in','2,3');
-
 		//$map['a.uid'] = array('eq',$uid);
 		switch ($pro_type) {
 			#房源
 			case '1':
 				$info = $model->field('a.id,a.pro_id,a.pro_name,a.pro_img,a.unit_price,a.number,a.adult,a.total_price,a.discount_price,a.discount_way,FROM_UNIXTIME(a.start_time, "%Y-%m-%d") start_time,FROM_UNIXTIME(a.end_time, "%Y-%m-%d") end_time,FROM_UNIXTIME(a.insert_time, "%Y-%m-%d") insert_time,a.pro_type,b.number order_number,b.title,b.pay_type,b.status,c.hel_tel tel')->alias('a');
-
 				$info = $info->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id');
 				$info = $info->join(C('DB_PREFIX').'hel c on a.pro_id = c.id');
 				$info = $info->where($map)->find();
@@ -536,7 +525,6 @@ class UcenterController extends HomeController
 			#餐饮
 			case '2':
 				$info = $model->field('a.id,a.pro_id,a.voucher_number,a.pro_name,a.pro_img,a.unit_price,a.number,a.total_price,a.discount_price,a.discount_way,FROM_UNIXTIME(a.start_time, "%Y-%m-%d") start_time,FROM_UNIXTIME(a.insert_time, "%Y-%m-%d") insert_time,a.pro_type,b.number order_number,b.title,b.pay_type,b.status,c.foot_tel tel,c.provinces,c.citys,c.countys,c.address')->alias('a');
-
 				$info = $info->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id');
 				$info = $info->join(C('DB_PREFIX').'restaurant c on a.pro_id = c.id');
 				$info = $info->where($map)->find();
@@ -544,7 +532,6 @@ class UcenterController extends HomeController
 			#景点
 			case '3':
 				$info = $model->field('a.id,a.pro_id,a.pro_name,a.pro_img,a.unit_price,a.number,a.total_price,a.discount_price,a.discount_way,a.pro_type,FROM_UNIXTIME(a.start_time, "%Y-%m-%d") start_time,FROM_UNIXTIME(a.insert_time, "%Y-%m-%d") insert_time,b.number order_number,b.title,b.pay_type,b.status,c.tel,c.provinces,c.citys,c.countys,c.address')->alias('a');
-
 				$info = $info->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id');
 				$info = $info->join(C('DB_PREFIX').'play c on a.pro_id = c.id');
 				$info = $info->where($map)->find();
@@ -552,7 +539,6 @@ class UcenterController extends HomeController
 			#景点
 			case '4':
 				$info = $model->field('a.id,a.pro_id,a.pro_name,a.pro_img,a.unit_price,a.number,a.total_price,a.discount_price,a.discount_way,FROM_UNIXTIME(a.start_time, "%Y-%m-%d") start_time,FROM_UNIXTIME(a.insert_time, "%Y-%m-%d") insert_time,a.pro_type,b.number order_number,b.title,b.pay_type,b.status,c.tel,c.provinces,c.citys,c.countys,c.starting_city')->alias('a');
-
 				$info = $info->join(C('DB_PREFIX').'order b on a.id = b.pro_order_id');
 				$info = $info->join(C('DB_PREFIX').'route c on a.pro_id = c.id');
 				$info = $info->where($map)->find();
@@ -561,7 +547,6 @@ class UcenterController extends HomeController
 		}
 		if(!$info)
 			$this->ajaxReturn(array('msg' => '非法操作','status' => false));
-
 		$list['0'] = $info;
 		order_int_to_string($list);
 		$info = $list['0'];
@@ -575,14 +560,12 @@ class UcenterController extends HomeController
 		$end_Week =  date('w',strtotime($info['end_time']));
 		$info['start_Week'] = $weekarray[$start_Week];
 		$info['end_Week'] = $weekarray[$end_Week];
-
 		#积分折扣价钱
 		$info['sore_price'] = ($info['total_price'] - $info['discount_price']);
 		getImg($info,array('pro_img'));
 		$data['info'] = $info;
 		$this->ajaxReturn(array('msg' => '200 ok','data' => $data,'status' => true));
 	}
-
 	/**
 	 * [order_changeStatus 用户订单点击确认已交易]
 	 * @return [type] [description]
@@ -723,7 +706,6 @@ class UcenterController extends HomeController
 			$this->ajaxReturn(array('msg' => '撤销失败','status' => false));
 
 	}
-
 	/**
 	 * 订单评论
 	 * pro_type    产品类型
@@ -735,7 +717,6 @@ class UcenterController extends HomeController
 	 */
 	public function ordercomment(){
 		if(IS_POST){
-
 			if(!I('post.pro_id') || !I('post.pro_type') || !I('post.order_id'))
 				$this->ajaxReturn(array('msg' => '非法操作','status' => false));
 			$data = I('post.');
@@ -756,12 +737,11 @@ class UcenterController extends HomeController
 		if(!I('request.order_id'))
 			$this->ajaxReturn(array('msg' => '非法操作','status' => false));
 		$order_id = I('request.order_id');
-		$uid = is_login();
+		$uid = 44;//UID;
 		$map['id'] = array('eq',$order_id);
 		$map['uid'] = array('eq',$uid);
 		$info = M('pro_order')->field('id order_id,pro_id,pro_type,pro_name,pro_img')->where($map)->find();
 		
-
 		if(!$info)
 			$this->ajaxReturn(array('msg' => '非法操作','status' => false));
 		getImg($info,array('pro_img'));
@@ -866,7 +846,6 @@ class UcenterController extends HomeController
 		$this->ajaxReturn(array('msg' => '购物车数量','data' => $data,'status' => true));
 
 	}
-
 	/**
 	 * 美景贴图
 	 * @return [type] [description]
@@ -892,7 +871,6 @@ class UcenterController extends HomeController
 
 		}
 	}
-
 	// 上传用户头像接口
     Public function imgUplode() {
         $upload = new Util\ImgUpload();
@@ -1160,89 +1138,6 @@ class UcenterController extends HomeController
 		$this->ajaxReturn(array('status'=>true,'msg'=>'申请成功'));
 	}
 	
-
-	/**
-	 * 手机验证码发送
-	 */
-	public function test(){
-		$mobile='13049340993';
-		$msg="测试";
-		$res=$this->send_phone_message($msg,$mobile);
-	}
-	
-	function send_phone_message($message,$phone){
-	    $url = C('SMS_URL')."&c=".$message."&m=".$phone;
-	    $file = "";
-	    $fp = fopen($url, 'r') or exit('Open url faild!');    
-	    if($fp){  
-	        while(!feof($fp)) {    
-	            $file.=fgets($fp)."";  
-	        }
-	        echo $file;
-	        fclose($fp);    
-	    }
-	}
-	
-	/**
-	 * 用户中心---交易密码设置
-	 */
-	public function pwdcode(){
-		if(!IS_POST){
-			$this->error('非法操作');
-		}
-		$uid=is_login();
-		$uid=49;//调试后删除
-		$password=I('request.password');
-		$data['trading_password']=think_ucenter_md5($password, UC_AUTH_KEY);
-		if(!$data['trading_password']){
-			$this->ajaxReturn(array('msg'=>'交易密码不能为空','status'=>false));
-		}
-		$result=M('UcenterMember')->where('id='.$uid)->save($data);
-		if(!$result){
-			$this->ajaxReturn(array('msg'=>'设置失败','status'=>false));
-		}
-		$this->ajaxReturn(array('msg'=>'设置成功','status'=>true));
-	}
-	
-	/**
-	 * 用户中心---我的钱包内容页
-	 */
-	public function mymoeny(){
-		if(!IS_POST){
-			$this->error('非法操作');
-		}
-		$uid=is_login();
-		$uid=44;//调试后删除
-		$result=M('member')->field('a.score,b.price')->alias('a')->join('tv_financial b on a.uid=b.uid')->where('a.uid='.$uid)->find();
-		if(!$result){
-			$this->ajaxReturn(array('msg'=>'该网页正在维护中，请稍后再试！','status'=>false));
-		}
-		$this->ajaxReturn(array('data'=>$result,'status'=>true));
-	}
 	
 	
-	/**
-	 * 用户中心---添加支付宝
-	 */
-	public function setback(){
-		if(!IS_POST){
-			$this->error('非法操作');
-		}
-		$uid=is_login();
-		$uid=44;
-		$data['uid']=$uid;
-		$data['back_card']=I('request.card');
-		$data['account_name']=I('request.name');
-		$infoUID=M('BackInfor')->field('uid')->where('uid='.$uid)->find();
-		if($infoUID){
-			$result=M('BackInfor')->where('uid='.$uid)->save($data);
-		}else{
-			$result=M('BackInfor')->add($data);
-		}
-		if(!$result){
-			$this->ajaxReturn(array('msg'=>'该网页正在维护中，请稍后再试！','status'=>false));
-		}
-		$this->ajaxReturn(array('msg'=>'设置成功','status'=>true));
-	}
-
 }
