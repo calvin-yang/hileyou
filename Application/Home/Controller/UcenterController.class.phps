@@ -874,6 +874,8 @@ class UcenterController extends HomeController
 	// 上传用户头像接口
     Public function imgUplode() {
         $upload = new Util\ImgUpload();
+        if(!I('post.img'))
+        	$this->ajaxReturn(array('msg' => '无img', 'status' => false));
         $upload->annexFolder = "./Uploads/Facilitator";//$annexFolder;   //附件存放路径
         $upload->smallFolder =  "./Uploads/Facilitator/smallimg";//$smallFolder;   //缩略图存放路径
         $upload->markFolder = "./Uploads/Facilitator/mark";//$markFolder;     //水印图片存放处
