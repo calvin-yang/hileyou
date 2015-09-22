@@ -8,8 +8,9 @@
 // +----------------------------------------------------------------------
 
 namespace Home\Controller;
-use ORG\Net;
+//加载上传类  
 use ORG\Util;
+use ORG\Net;
 use Common\Model\Api\SendEailApi;
 
 class UcenterController extends HomeController
@@ -20,7 +21,7 @@ class UcenterController extends HomeController
 		$config = api('Config/lists');
 		C($config); //添加配置
         /* 判断是否登录 */
-     	//is_login() || $this->ajaxReturn(array('msg' => '您还没有登录，请先登录！','status' => false));
+     	is_login() || $this->ajaxReturn(array('msg' => '您还没有登录，请先登录！','status' => false));
 
     }
     
